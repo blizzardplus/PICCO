@@ -1,0 +1,4 @@
+Picco
+
+Some usage note:
+- Only add the important files to the android project directory, not the built or temporary files.
