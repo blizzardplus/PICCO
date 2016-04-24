@@ -14,7 +14,7 @@ public class LogoActivity extends ActionBarActivity {
     }
 
     public void goToLogin(View view){
-        Intent intent = new Intent(this, LoginActivity.class);
+        Intent intent = new Intent(this, SignInActivity.class);
         startActivity(intent);
     }
 

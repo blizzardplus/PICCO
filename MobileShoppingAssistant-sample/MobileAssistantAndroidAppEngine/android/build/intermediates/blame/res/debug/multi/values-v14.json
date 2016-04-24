@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "/home/yfu/softwares/MobileShoppingAssistant-sample/MobileAssistantAndroidAppEngine/android/build/intermediates/res/merged/debug/values-v14/values-v14.xml",
+        "outputFile": "/home/yfu/courses/cos448/picco/PICCO/MobileShoppingAssistant-sample/MobileAssistantAndroidAppEngine/android/build/intermediates/res/merged/debug/values-v14/values-v14.xml",
         "map": [
             {
                 "to": {
@@ -12,7 +12,7 @@
                     "endOffset": 201
                 },
                 "from": {
-                    "file": "/home/yfu/softwares/MobileShoppingAssistant-sample/MobileAssistantAndroidAppEngine/android/src/main/res/values-v14/styles.xml",
+                    "file": "/home/yfu/courses/cos448/picco/PICCO/MobileShoppingAssistant-sample/MobileAssistantAndroidAppEngine/android/src/main/res/values-v14/styles.xml",
                     "position": {
                         "startLine": 23,
                         "startColumn": 4,
@@ -33,7 +33,7 @@
                     "endOffset": 715
                 },
                 "from": {
-                    "file": "/home/yfu/softwares/MobileShoppingAssistant-sample/MobileAssistantAndroidAppEngine/android/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-v14/values.xml",
+                    "file": "/home/yfu/courses/cos448/picco/PICCO/MobileShoppingAssistant-sample/MobileAssistantAndroidAppEngine/android/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-v14/values.xml",
                     "position": {
                         "startLine": 3,
                         "startColumn": 4,
@@ -54,7 +54,7 @@
                     "endOffset": 1243
                 },
                 "from": {
-                    "file": "/home/yfu/softwares/MobileShoppingAssistant-sample/MobileAssistantAndroidAppEngine/android/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-v14/values.xml",
+                    "file": "/home/yfu/courses/cos448/picco/PICCO/MobileShoppingAssistant-sample/MobileAssistantAndroidAppEngine/android/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-v14/values.xml",
                     "position": {
                         "startLine": 11,
                         "startColumn": 4,
@@ -75,7 +75,7 @@
                     "endOffset": 1769
                 },
                 "from": {
-                    "file": "/home/yfu/softwares/MobileShoppingAssistant-sample/MobileAssistantAndroidAppEngine/android/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-v14/values.xml",
+                    "file": "/home/yfu/courses/cos448/picco/PICCO/MobileShoppingAssistant-sample/MobileAssistantAndroidAppEngine/android/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-v14/values.xml",
                     "position": {
                         "startLine": 19,
                         "startColumn": 4,
@@ -96,7 +96,7 @@
                     "endOffset": 2309
                 },
                 "from": {
-                    "file": "/home/yfu/softwares/MobileShoppingAssistant-sample/MobileAssistantAndroidAppEngine/android/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-v14/values.xml",
+                    "file": "/home/yfu/courses/cos448/picco/PICCO/MobileShoppingAssistant-sample/MobileAssistantAndroidAppEngine/android/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-v14/values.xml",
                     "position": {
                         "startLine": 27,
                         "startColumn": 4,
@@ -116,7 +116,7 @@
                     "endOffset": 2388
                 },
                 "from": {
-                    "file": "/home/yfu/softwares/MobileShoppingAssistant-sample/MobileAssistantAndroidAppEngine/android/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-v14/values.xml",
+                    "file": "/home/yfu/courses/cos448/picco/PICCO/MobileShoppingAssistant-sample/MobileAssistantAndroidAppEngine/android/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-v14/values.xml",
                     "position": {
                         "startLine": 35,
                         "startColumn": 4,
@@ -135,7 +135,7 @@
                     "endOffset": 2481
                 },
                 "from": {
-                    "file": "/home/yfu/softwares/MobileShoppingAssistant-sample/MobileAssistantAndroidAppEngine/android/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-v14/values.xml",
+                    "file": "/home/yfu/courses/cos448/picco/PICCO/MobileShoppingAssistant-sample/MobileAssistantAndroidAppEngine/android/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-v14/values.xml",
                     "position": {
                         "startLine": 37,
                         "startColumn": 4,
@@ -154,7 +154,7 @@
                     "endOffset": 2572
                 },
                 "from": {
-                    "file": "/home/yfu/softwares/MobileShoppingAssistant-sample/MobileAssistantAndroidAppEngine/android/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-v14/values.xml",
+                    "file": "/home/yfu/courses/cos448/picco/PICCO/MobileShoppingAssistant-sample/MobileAssistantAndroidAppEngine/android/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-v14/values.xml",
                     "position": {
                         "startLine": 39,
                         "startColumn": 4,
@@ -173,7 +173,7 @@
                     "endOffset": 2677
                 },
                 "from": {
-                    "file": "/home/yfu/softwares/MobileShoppingAssistant-sample/MobileAssistantAndroidAppEngine/android/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-v14/values.xml",
+                    "file": "/home/yfu/courses/cos448/picco/PICCO/MobileShoppingAssistant-sample/MobileAssistantAndroidAppEngine/android/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-v14/values.xml",
                     "position": {
                         "startLine": 41,
                         "startColumn": 4,

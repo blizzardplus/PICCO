@@ -4,29 +4,34 @@
     api-level="23"
     density="420dpi"
     format="7"
-    timestamp="11082273306761" >
+    timestamp="30635512193042" >
 
     <task
         name="javac"
-        duration="640" />
+        duration="0" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="497" />
+        duration="0" />
     <task
         name="verifier"
-        duration="25" />
+        duration="0" />
 
     <artifact
-        location="/home/yfu/softwares/MobileShoppingAssistant-sample/MobileAssistantAndroidAppEngine/android/build/outputs/apk/android-debug.apk"
-        type="MAIN" />
+        location="/home/yfu/courses/cos448/picco/PICCO/MobileShoppingAssistant-sample/MobileAssistantAndroidAppEngine/android/build/intermediates/res/resources-debug.ap_"
+        type="RESOURCES" />
 
-    <build timestamp="11082273306761" >
+    <build timestamp="30401440031812" >
         <artifact
-            location="/home/yfu/softwares/MobileShoppingAssistant-sample/MobileAssistantAndroidAppEngine/android/build/outputs/apk/android-debug.apk"
+            location="/home/yfu/courses/cos448/picco/PICCO/MobileShoppingAssistant-sample/MobileAssistantAndroidAppEngine/android/build/outputs/apk/android-debug.apk"
             type="MAIN" />
+    </build>
+    <build timestamp="30635512193042" >
+        <artifact
+            location="/home/yfu/courses/cos448/picco/PICCO/MobileShoppingAssistant-sample/MobileAssistantAndroidAppEngine/android/build/intermediates/res/resources-debug.ap_"
+            type="RESOURCES" />
     </build>
 
 </instant-run>
