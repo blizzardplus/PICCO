@@ -1,5 +1,5 @@
-MobileShoppingAssistant-sample/MobileAssistantAndroidAppEngine/android/build/
-MobileShoppingAssistant-sample/MobileAssistantAndroidAppEngine/backend/build/
-Picco_Android/build/
-Picco_Android/backend/build/
+MobileShoppingAssistant-sample/MobileAssistantAndroidAppEngine/android/build/*
+MobileShoppingAssistant-sample/MobileAssistantAndroidAppEngine/backend/build/*
+Picco_Android/build/*
+Picco_Android/backend/build/*
 
