@@ -1,0 +1,4 @@
+name,placeId,location,id,address
+A store at City1 Shopping Center,store101,"40.35,-74.66",1,"Some address of the store in City 1"
+A big store at Some Mall,store102,"37.42, -122.08",2,"Some address of the store in City 2"
+A store at City1 Shopping Center,store103,"-74.66,40.35",3,"Some address of the store in City 3"

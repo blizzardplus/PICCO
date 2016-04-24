@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<instant-run
+    abi="arm64-v8a,armeabi-v7a,armeabi"
+    api-level="23"
+    density="420dpi"
+    format="7"
+    timestamp="11082273306761" >
+
+    <task
+        name="javac"
+        duration="640" />
+    <task
+        name="instant-run-dex"
+        duration="0" />
+    <task
+        name="instant-run-transform"
+        duration="497" />
+    <task
+        name="verifier"
+        duration="25" />
+
+    <artifact
+        location="/home/yfu/softwares/MobileShoppingAssistant-sample/MobileAssistantAndroidAppEngine/android/build/outputs/apk/android-debug.apk"
+        type="MAIN" />
+
+    <build timestamp="11082273306761" >
+        <artifact
+            location="/home/yfu/softwares/MobileShoppingAssistant-sample/MobileAssistantAndroidAppEngine/android/build/outputs/apk/android-debug.apk"
+            type="MAIN" />
+    </build>
+
+</instant-run>

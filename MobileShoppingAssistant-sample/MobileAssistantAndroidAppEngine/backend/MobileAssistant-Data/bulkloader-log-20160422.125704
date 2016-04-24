@@ -1,0 +1,100 @@
+[INFO     2016-04-22 12:57:04,039 bulkloader.py] Logging to bulkloader-log-20160422.125704
+[INFO     2016-04-22 12:57:04,039 bulkloader.py] Throttling transfers:
+[INFO     2016-04-22 12:57:04,039 bulkloader.py] Bandwidth: 250000 bytes/second
+[INFO     2016-04-22 12:57:04,040 bulkloader.py] HTTP connections: 8/second
+[INFO     2016-04-22 12:57:04,040 bulkloader.py] Entities inserted/fetched/modified: 20/second
+[INFO     2016-04-22 12:57:04,040 bulkloader.py] Batch Size: 10
+[INFO     2016-04-22 12:57:04,199 bulkloader.py] Opening database: bulkloader-progress-20160422.125704.sql3
+[DEBUG    2016-04-22 12:57:04,576 adaptive_thread_pool.py] [WorkerThread-0] WorkerThread: started
+[DEBUG    2016-04-22 12:57:04,577 adaptive_thread_pool.py] [WorkerThread-1] WorkerThread: started
+[DEBUG    2016-04-22 12:57:04,577 adaptive_thread_pool.py] [WorkerThread-2] WorkerThread: started
+[DEBUG    2016-04-22 12:57:04,578 adaptive_thread_pool.py] [WorkerThread-3] WorkerThread: started
+[DEBUG    2016-04-22 12:57:04,578 adaptive_thread_pool.py] [WorkerThread-4] WorkerThread: started
+[DEBUG    2016-04-22 12:57:04,579 adaptive_thread_pool.py] [WorkerThread-5] WorkerThread: started
+[DEBUG    2016-04-22 12:57:04,579 adaptive_thread_pool.py] [WorkerThread-6] WorkerThread: started
+[DEBUG    2016-04-22 12:57:04,580 adaptive_thread_pool.py] [WorkerThread-7] WorkerThread: started
+[DEBUG    2016-04-22 12:57:04,580 adaptive_thread_pool.py] [WorkerThread-8] WorkerThread: started
+[DEBUG    2016-04-22 12:57:04,580 bulkloader.py] Configuring remote_api. url_path = /remote_api, servername = bright-zodiac-128723.appspot.com
+[DEBUG    2016-04-22 12:57:04,580 bulkloader.py] Bulkloader using app_id: s~bright-zodiac-128723
+[INFO     2016-04-22 12:57:04,581 bulkloader.py] Connecting to bright-zodiac-128723.appspot.com/remote_api
+[DEBUG    2016-04-22 12:57:04,581 adaptive_thread_pool.py] [WorkerThread-9] WorkerThread: started
+[DEBUG    2016-04-22 12:57:04,846 bulkloader.py] [Thread-11] ProgressTrackerThread: started
+[DEBUG    2016-04-22 12:57:04,846 bulkloader.py] [Thread-12] DataSourceThread: started
+[INFO     2016-04-22 12:57:04,847 bulkloader.py] Starting import; maximum 10 entities per post
+[DEBUG    2016-04-22 12:57:04,848 bulkloader.py] [Thread-12] DataSourceThread: exiting
+[DEBUG    2016-04-22 12:57:04,849 bulkloader.py] Waiting for worker threads to finish...
+[DEBUG    2016-04-22 12:57:04,892 adaptive_thread_pool.py] [WorkerThread-0] Got work item [1-4]
+[ERROR    2016-04-22 12:57:04,913 adaptive_thread_pool.py] [WorkerThread-0] WorkerThread:
+Traceback (most recent call last):
+  File "/home/yfu/softwares/google_appengine/google/appengine/tools/adaptive_thread_pool.py", line 172, in WorkOnItems
+    status, instruction = item.PerformWork(self.__thread_pool)
+  File "/home/yfu/softwares/google_appengine/google/appengine/tools/bulkloader.py", line 750, in PerformWork
+    transfer_time = self._TransferItem(thread_pool)
+  File "/home/yfu/softwares/google_appengine/google/appengine/tools/bulkloader.py", line 919, in _TransferItem
+    self.content = self.request_manager.EncodeContent(self.rows)
+  File "/home/yfu/softwares/google_appengine/google/appengine/tools/bulkloader.py", line 1370, in EncodeContent
+    entity = loader.create_entity(values, key_name=key, parent=parent)
+  File "/home/yfu/softwares/google_appengine/google/appengine/ext/bulkload/bulkloader_config.py", line 457, in create_entity
+    entity = self.dict_to_entity(input_dict, self.bulkload_state)
+  File "/home/yfu/softwares/google_appengine/google/appengine/ext/bulkload/bulkloader_config.py", line 148, in dict_to_entity
+    self.__run_import_transforms(input_dict, instance, bulkload_state_copy)
+  File "/home/yfu/softwares/google_appengine/google/appengine/ext/bulkload/bulkloader_config.py", line 260, in __run_import_transforms
+    value = self.__dict_to_prop(transform, input_dict, bulkload_state)
+  File "/home/yfu/softwares/google_appengine/google/appengine/ext/bulkload/bulkloader_config.py", line 208, in __dict_to_prop
+    value = transform.import_transform(value)
+  File "/home/yfu/softwares/google_appengine/google/appengine/ext/bulkload/bulkloader_parser.py", line 112, in __call__
+    return self.method(*args, **kwargs)
+  File "/home/yfu/softwares/google_appengine/google/appengine/api/datastore_types.py", line 909, in __init__
+    (lat, typename(lat)))
+BadValueError: Expected a "lat,long" formatted string; received -122.08\uff0c 37.42 (a unicode).
+[DEBUG    2016-04-22 12:57:04,915 adaptive_thread_pool.py] [WorkerThread-0] WorkerThread: exiting
+[INFO     2016-04-22 12:57:04,916 adaptive_thread_pool.py] [WorkerThread-1] Backing off due to errors: 1.0 seconds
+[INFO     2016-04-22 12:57:05,350 bulkloader.py] An error occurred. Shutting down...
+[DEBUG    2016-04-22 12:57:05,351 adaptive_thread_pool.py] [WorkerThread-6] WorkerThread: exiting
+[DEBUG    2016-04-22 12:57:05,351 adaptive_thread_pool.py] [WorkerThread-5] WorkerThread: exiting
+[DEBUG    2016-04-22 12:57:05,351 adaptive_thread_pool.py] [WorkerThread-2] WorkerThread: exiting
+[DEBUG    2016-04-22 12:57:05,351 adaptive_thread_pool.py] [WorkerThread-7] WorkerThread: exiting
+[DEBUG    2016-04-22 12:57:05,351 adaptive_thread_pool.py] [WorkerThread-4] WorkerThread: exiting
+[DEBUG    2016-04-22 12:57:05,352 adaptive_thread_pool.py] Waiting for Anonymous_WorkerThread to exit
+[DEBUG    2016-04-22 12:57:05,352 adaptive_thread_pool.py] Waiting for Anonymous_WorkerThread to exit
+[DEBUG    2016-04-22 12:57:05,352 adaptive_thread_pool.py] [WorkerThread-3] WorkerThread: exiting
+[DEBUG    2016-04-22 12:57:05,352 adaptive_thread_pool.py] [WorkerThread-8] WorkerThread: exiting
+[DEBUG    2016-04-22 12:57:05,352 adaptive_thread_pool.py] [WorkerThread-9] WorkerThread: exiting
+[DEBUG    2016-04-22 12:57:05,417 adaptive_thread_pool.py] [WorkerThread-1] WorkerThread: exiting
+[DEBUG    2016-04-22 12:57:05,417 adaptive_thread_pool.py] Waiting for Anonymous_WorkerThread to exit
+[DEBUG    2016-04-22 12:57:05,417 adaptive_thread_pool.py] Waiting for Anonymous_WorkerThread to exit
+[DEBUG    2016-04-22 12:57:05,417 adaptive_thread_pool.py] Waiting for Anonymous_WorkerThread to exit
+[DEBUG    2016-04-22 12:57:05,417 adaptive_thread_pool.py] Waiting for Anonymous_WorkerThread to exit
+[DEBUG    2016-04-22 12:57:05,417 adaptive_thread_pool.py] Waiting for Anonymous_WorkerThread to exit
+[DEBUG    2016-04-22 12:57:05,417 adaptive_thread_pool.py] Waiting for Anonymous_WorkerThread to exit
+[DEBUG    2016-04-22 12:57:05,417 adaptive_thread_pool.py] Waiting for Anonymous_WorkerThread to exit
+[DEBUG    2016-04-22 12:57:05,417 adaptive_thread_pool.py] Waiting for Anonymous_WorkerThread to exit
+[DEBUG    2016-04-22 12:57:05,437 adaptive_thread_pool.py] Traceback (most recent call last):
+  File "/home/yfu/softwares/google_appengine/google/appengine/tools/adaptive_thread_pool.py", line 172, in WorkOnItems
+    status, instruction = item.PerformWork(self.__thread_pool)
+  File "/home/yfu/softwares/google_appengine/google/appengine/tools/bulkloader.py", line 750, in PerformWork
+    transfer_time = self._TransferItem(thread_pool)
+  File "/home/yfu/softwares/google_appengine/google/appengine/tools/bulkloader.py", line 919, in _TransferItem
+    self.content = self.request_manager.EncodeContent(self.rows)
+  File "/home/yfu/softwares/google_appengine/google/appengine/tools/bulkloader.py", line 1370, in EncodeContent
+    entity = loader.create_entity(values, key_name=key, parent=parent)
+  File "/home/yfu/softwares/google_appengine/google/appengine/ext/bulkload/bulkloader_config.py", line 457, in create_entity
+    entity = self.dict_to_entity(input_dict, self.bulkload_state)
+  File "/home/yfu/softwares/google_appengine/google/appengine/ext/bulkload/bulkloader_config.py", line 148, in dict_to_entity
+    self.__run_import_transforms(input_dict, instance, bulkload_state_copy)
+  File "/home/yfu/softwares/google_appengine/google/appengine/ext/bulkload/bulkloader_config.py", line 260, in __run_import_transforms
+    value = self.__dict_to_prop(transform, input_dict, bulkload_state)
+  File "/home/yfu/softwares/google_appengine/google/appengine/ext/bulkload/bulkloader_config.py", line 208, in __dict_to_prop
+    value = transform.import_transform(value)
+  File "/home/yfu/softwares/google_appengine/google/appengine/ext/bulkload/bulkloader_parser.py", line 112, in __call__
+    return self.method(*args, **kwargs)
+  File "/home/yfu/softwares/google_appengine/google/appengine/api/datastore_types.py", line 909, in __init__
+    (lat, typename(lat)))
+BadValueError: Expected a "lat,long" formatted string; received -122.08\uff0c 37.42 (a unicode).
+
+[DEBUG    2016-04-22 12:57:05,439 bulkloader.py] Waiting for progress_thread to terminate...
+[DEBUG    2016-04-22 12:57:05,556 bulkloader.py] [Thread-11] ProgressTrackerThread: exiting
+[DEBUG    2016-04-22 12:57:05,603 bulkloader.py] ... done.
+[INFO     2016-04-22 12:57:05,603 bulkloader.py] 4 entities total, 0 previously transferred
+[INFO     2016-04-22 12:57:05,603 bulkloader.py] 0 entities (757 bytes) transferred in 1.6 seconds
+[INFO     2016-04-22 12:57:05,603 bulkloader.py] Some entities not successfully transferred

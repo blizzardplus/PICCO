@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/home/yfu/softwares/MobileShoppingAssistant-sample/MobileAssistantAndroidAppEngine/android/build/intermediates/res/merged/debug/menu/activity_place_details.xml",
+        "source": "/home/yfu/softwares/MobileShoppingAssistant-sample/MobileAssistantAndroidAppEngine/android/src/main/res/menu/activity_place_details.xml"
+    },
+    {
+        "merged": "/home/yfu/softwares/MobileShoppingAssistant-sample/MobileAssistantAndroidAppEngine/android/build/intermediates/res/merged/debug/menu/activity_main.xml",
+        "source": "/home/yfu/softwares/MobileShoppingAssistant-sample/MobileAssistantAndroidAppEngine/android/src/main/res/menu/activity_main.xml"
+    }
+]
