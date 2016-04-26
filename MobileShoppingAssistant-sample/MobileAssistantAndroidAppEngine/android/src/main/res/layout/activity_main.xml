@@ -13,6 +13,22 @@
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License.
   -->
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:id="@+id/drawer_layout"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    tools:context="com.google.sample.mobileassistant.MainActivity">
+
+    <!-- As the main content view, the view below consumes the entire
+             space available using match_parent in both dimensions. -->
+    <FrameLayout android:id="@+id/container" android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v4.widget.SwipeRefreshLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/swipe_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="fill_parent"
@@ -25,33 +41,33 @@
                   android:orientation="horizontal"
                   style="?android:attr/buttonBarStyle">
 
-        <Button
-                android:id="@+id/OnlineShopping"
-                android:layout_width="0dip"
-                android:layout_height="wrap_content"
-                android:layout_weight=".3"
-                android:text="@string/onlineShopping"
-                android:textSize="12sp"
-                style="?android:attr/buttonBarButtonStyle"/>
+        <!--<Button-->
+                <!--android:id="@+id/OnlineShopping"-->
+                <!--android:layout_width="0dip"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_weight=".3"-->
+                <!--android:text="@string/onlineShopping"-->
+                <!--android:textSize="12sp"-->
+                <!--style="?android:attr/buttonBarButtonStyle"/>-->
 
-        <Button
-                android:id="@+id/MyAccount"
-                android:layout_width="0dip"
-                android:layout_height="wrap_content"
-                android:layout_weight=".3"
-                android:text="@string/myAccount"
-                android:textSize="12sp"
-                style="?android:attr/buttonBarButtonStyle"/>
+        <!--<Button-->
+                <!--android:id="@+id/MyAccount"-->
+                <!--android:layout_width="0dip"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_weight=".3"-->
+                <!--android:text="@string/myAccount"-->
+                <!--android:textSize="12sp"-->
+                <!--style="?android:attr/buttonBarButtonStyle"/>-->
 
-        <Button
-                android:id="@+id/CheckIn"
-                android:layout_width="0dip"
-                android:layout_height="wrap_content"
-                android:layout_weight=".3"
-                android:onClick="onRetrievePlaces"
-                android:text="@string/checkIn"
-                android:textSize="12sp"
-                style="?android:attr/buttonBarButtonStyle"/>
+        <!--<Button-->
+                <!--android:id="@+id/CheckIn"-->
+                <!--android:layout_width="0dip"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_weight=".3"-->
+                <!--android:onClick="onRetrievePlaces"-->
+                <!--android:text="@string/checkIn"-->
+                <!--android:textSize="12sp"-->
+                <!--style="?android:attr/buttonBarButtonStyle"/>-->
     </LinearLayout>
 
     <LinearLayout
@@ -75,3 +91,15 @@
     </LinearLayout>
 
 </LinearLayout>
+
+        </android.support.v4.widget.SwipeRefreshLayout>
+
+    </FrameLayout>
+    <!-- The drawer is given a fixed width in dp and extends the full height of
+         the container. -->
+    <fragment android:id="@+id/navigation_drawer"
+        android:layout_width="@dimen/navigation_drawer_width" android:layout_height="match_parent"
+        android:layout_gravity="start" android:name="com.google.sample.mobileassistant.NavigationDrawerFragment"
+        tools:layout="@layout/drawer_main" />
+
+</android.support.v4.widget.DrawerLayout>
