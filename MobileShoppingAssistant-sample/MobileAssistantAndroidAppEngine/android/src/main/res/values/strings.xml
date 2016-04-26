@@ -47,4 +47,21 @@
         registration. Trying again later</string>
     <string name="gcmRegistrationSuccess">Device registered, registration
         ID= %1s</string>
+
+    <string name="title_section1">Search</string>
+    <string name="title_section2">Create Shopping Cart</string>
+    <string name="title_section3">Submit Shopping Info</string>
+    <string name="title_section4">Hot Deals</string>
+    <string name="title_section5">My Shopping Trends</string>
+    <string name="title_section6">Full History</string>
+    <string name="title_section7">Bookmarks</string>
+    <string name="title_section8">Settings</string>
+    <string name="title_section9">Sign Out</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="action_example">Example action</string>
+
 </resources>
