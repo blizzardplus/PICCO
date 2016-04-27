@@ -17,6 +17,7 @@
     package="com.google.sample.mobileassistant">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.USE_CREDENTIALS" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
@@ -41,8 +42,7 @@
 
         <activity
             android:name=".SignInActivity"
-            android:label="Picco">
-        </activity>
+            android:label="Picco"></activity>
         <activity android:name=".MainActivity" />
         <activity android:name=".PlaceDetailsActivity" />
 
@@ -65,6 +65,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".BarcodeActivity"></activity>
     </application>
 
 </manifest>
