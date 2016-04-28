@@ -289,11 +289,13 @@ public class MainActivity extends ActionBarActivity
         switch (number) {
             case 1:
                 mTitle = getString(R.string.title_section1);
+                Intent intent = new Intent(this, CameraActivity.class);
+                startActivity(intent);
                 break;
             case 2:
                 mTitle = getString(R.string.title_section2);
-                Intent intent = new Intent(this, BarcodeActivity.class);
-                startActivity(intent);
+                Intent intent2 = new Intent(this, BarcodeActivity.class);
+                startActivity(intent2);
                 break;
             case 9:
                 mTitle = getString(R.string.title_section9);

@@ -15,7 +15,8 @@
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.google.sample.mobileassistant">
-
+    <uses-feature android:name="android.hardware.camera"
+        android:required="false" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
@@ -24,6 +25,8 @@
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <permission
         android:name="com.google.sample.mobileassistant.permission.C2D_MESSAGE"
@@ -42,7 +45,7 @@
 
         <activity
             android:name=".SignInActivity"
-            android:label="Picco"></activity>
+            android:label="Picco" />
         <activity android:name=".MainActivity" />
         <activity android:name=".PlaceDetailsActivity" />
 
@@ -65,7 +68,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".BarcodeActivity"></activity>
+        <activity android:name=".BarcodeActivity" />
+        <activity android:name=".CameraActivity"></activity>
     </application>
 
 </manifest>
