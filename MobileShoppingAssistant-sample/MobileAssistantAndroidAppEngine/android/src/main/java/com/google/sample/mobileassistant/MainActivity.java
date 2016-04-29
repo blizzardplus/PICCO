@@ -27,6 +27,7 @@ import com.google.sample.mobileassistantbackend
         .shoppingAssistant.model.PlaceInfo;
 import com.google.sample.mobileassistantbackend
         .shoppingAssistant.model.PlaceInfoCollection;
+import com.googlecode.tesseract.android.TessBaseAPI;
 
 import android.app.Activity;
 import android.support.v7.app.ActionBarActivity;
@@ -68,6 +69,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.logging.Logger;
+
+
 
 /**
  * Mobile Shopping Assistant Main Activity. Launched after the application
@@ -209,6 +212,16 @@ public class MainActivity extends ActionBarActivity
         requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
 
         super.onCreate(savedInstanceState);
+
+
+        TessBaseAPI baseApi = new TessBaseAPI();
+// DATA_PATH = Path to the storage
+// lang = for which the language data exists, usually "eng"
+        ////baseApi.init(DATA_PATH, lang);
+// Eg. baseApi.init("/mnt/sdcard/tesseract/tessdata/eng.traineddata", "eng");
+        ////baseApi.setImage(bitmap);
+        String recognizedText = baseApi.getUTF8Text();
+        baseApi.end();
 
         // Handle to the GAE endpoints in the backend
         shoppingAssistantAPI = CloudEndpointBuilderHelper.getEndpoints();
