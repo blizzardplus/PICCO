@@ -103,7 +103,7 @@ public class CameraActivity extends ActionBarActivity implements View.OnClickLis
         } else {
             return null;
         }
-
+        Log.d("File", mediaFile.getAbsolutePath());
         return mediaFile;
     }
 
@@ -130,14 +130,16 @@ public class CameraActivity extends ActionBarActivity implements View.OnClickLis
                 // Image captured and saved to fileUri specified in the Intent
 
                 try {
+                    Log.d("Url", fileUri.toString());
                     CloudStorage.createBucket("user-receipts");
 
-                    CloudStorage.uploadFile("user-receipts", data.getData().toString());
+                    CloudStorage.uploadFile("user-receipts", fileUri.toString());
                 } catch(Exception e) {
-
+                    Log.d("Exception", e.getMessage());
+                    e.printStackTrace();
                 }
                 Toast.makeText(this, "Image saved to:\n" +
-                        data.getData(), Toast.LENGTH_LONG).show();
+                        fileUri.toString(), Toast.LENGTH_LONG).show();
             } else if (resultCode == RESULT_CANCELED) {
                 // User cancelled the image capture
             } else {

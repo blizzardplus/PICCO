@@ -5,6 +5,8 @@ package com.google.sample.mobileassistant;
  */
 
 
+        import android.util.Log;
+
         import java.io.File;
         import java.io.FileInputStream;
         import java.io.FileOutputStream;
@@ -37,7 +39,7 @@ public class CloudStorage {
 
     private static final String PROJECT_ID_PROPERTY = Constants.SENDER_ID;
     private static final String APPLICATION_NAME_PROPERTY = "Picco";
-    private static final String ACCOUNT_ID_PROPERTY = "GOOGGPDCV6X2SROG2KUD";
+    private static final String ACCOUNT_ID_PROPERTY = "811318688635-78cbphbb61lgn651a2a859bohlgkggam.apps.googleusercontent.com";
     private static final String PRIVATE_KEY_PATH_PROPERTY = "Znj4LBpLmNqi0C3dkRF+WXO2axtM9/nNEJT8494V";
 
     /**
@@ -62,6 +64,7 @@ public class CloudStorage {
 
         InputStream stream = new FileInputStream(file);
         try {
+            Log.d("Upload", filePath);
             String contentType = URLConnection
                     .guessContentTypeFromStream(stream);
             InputStreamContent content = new InputStreamContent(contentType,
@@ -129,6 +132,7 @@ public class CloudStorage {
 
         storage.buckets().insert(
                 getProperties().getProperty(PROJECT_ID_PROPERTY), bucket).execute();
+        Log.d("create", bucketName);
     }
 
     /**

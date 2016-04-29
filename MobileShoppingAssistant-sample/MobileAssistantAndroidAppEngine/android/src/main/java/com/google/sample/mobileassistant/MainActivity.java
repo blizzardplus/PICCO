@@ -256,6 +256,7 @@ public class MainActivity extends ActionBarActivity
 
         // Check device for Play Services APK. If check succeeds, proceed
         // with GCM registration.
+        /*
         if (checkPlayServices()) {
             gcm = GoogleCloudMessaging.getInstance(this);
             regId = getRegistrationId(context);
@@ -270,7 +271,7 @@ public class MainActivity extends ActionBarActivity
         } else {
             Log.i(TAG, "No valid Google Play Services APK found.");
         }
-
+        */
         // start retrieving the list of nearby places
         new ListOfPlacesAsyncRetriever()
                 .execute(geoLocationHelper.getCurrentLocation());

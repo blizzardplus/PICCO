@@ -119,7 +119,7 @@ public class CheckInEndpoint {
 
         // generate personalized offers when user checks into a place and send
         // the, to the user using push notification
-        pushPersonalizedOffers(checkin.getPlaceId(), user);
+        //pushPersonalizedOffers(checkin.getPlaceId(), user);
 
         return checkin;
     }
