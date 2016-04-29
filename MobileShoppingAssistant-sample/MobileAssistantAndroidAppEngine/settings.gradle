@@ -15,3 +15,4 @@
  */
 
 include ':android', ':backend'
+include ':libs:tess-two-new'
