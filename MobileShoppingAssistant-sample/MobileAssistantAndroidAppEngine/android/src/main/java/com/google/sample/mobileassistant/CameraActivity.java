@@ -32,6 +32,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.VideoView;
 
+import com.googlecode.tesseract.android.TessBaseAPI;
+
 public class CameraActivity extends ActionBarActivity implements View.OnClickListener {
     private Button scanBtn;
     static final int REQUEST_TAKE_PHOTO = 1;
@@ -131,9 +133,19 @@ public class CameraActivity extends ActionBarActivity implements View.OnClickLis
 
                 try {
                     Log.d("Url", fileUri.toString());
-                    CloudStorage.createBucket("user-receipts");
+                    BitmapFactory.Options options = new BitmapFactory.Options();
+                    options.inSampleSize = 4;
 
-                    CloudStorage.uploadFile("user-receipts", fileUri.toString());
+                    Bitmap bitmap = BitmapFactory.decodeFile(fileUri.toString(), options);
+                    TessBaseAPI baseApi = new TessBaseAPI();
+// DATA_PATH = Path to the storage
+// lang = for which the language data exists, usually "eng"
+                    baseApi.init(fileUri.toString(), "eng");
+// Eg. baseApi.init("/mnt/sdcard/tesseract/tessdata/eng.traineddata", "eng");
+                    baseApi.setImage(bitmap);
+                    String recognizedText = baseApi.getUTF8Text();
+                    baseApi.end();
+
                 } catch(Exception e) {
                     Log.d("Exception", e.getMessage());
                     e.printStackTrace();

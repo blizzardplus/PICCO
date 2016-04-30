@@ -65,4 +65,6 @@
     <string name="action_example">Example action</string>
     <string name="scan">Scan</string>
     <string name="scan_your_receipt">Scan your receipt</string>
+    <string name="button_text">BUtton_text</string>
+    <string name="text_hint">Text_hint</string>
 </resources>

@@ -214,14 +214,14 @@ public class MainActivity extends ActionBarActivity
         super.onCreate(savedInstanceState);
 
 
-        TessBaseAPI baseApi = new TessBaseAPI();
+        //TessBaseAPI baseApi = new TessBaseAPI();
 // DATA_PATH = Path to the storage
 // lang = for which the language data exists, usually "eng"
         ////baseApi.init(DATA_PATH, lang);
 // Eg. baseApi.init("/mnt/sdcard/tesseract/tessdata/eng.traineddata", "eng");
         ////baseApi.setImage(bitmap);
-        String recognizedText = baseApi.getUTF8Text();
-        baseApi.end();
+        //String recognizedText = baseApi.getUTF8Text();
+        //baseApi.end();
 
         // Handle to the GAE endpoints in the backend
         shoppingAssistantAPI = CloudEndpointBuilderHelper.getEndpoints();
@@ -303,7 +303,7 @@ public class MainActivity extends ActionBarActivity
         switch (number) {
             case 1:
                 mTitle = getString(R.string.title_section1);
-                Intent intent = new Intent(this, CameraActivity.class);
+                Intent intent = new Intent(this, OCRActivity.class);
                 startActivity(intent);
                 break;
             case 2:
