@@ -27,13 +27,29 @@
             xmlns:android="http://schemas.android.com/apk/res/android"
             android:id="@+id/swipe_container"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="top">
 
+        <!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+            <!--android:layout_width="fill_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:orientation="vertical">-->
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="fill_parent"
-              android:layout_height="fill_parent"
-              android:orientation="vertical">
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:orientation="vertical"
+                android:layout_gravity="top">
+
+<!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+              <!--android:layout_width="fill_parent"-->
+              <!--android:layout_height="wrap_content"-->
+              <!--android:orientation="vertical"-->
+    <!--android:gravity="top"-->
+    <!--android:layout_gravity="top"-->
+    <!--android:layout_weight="0.8"-->
+    <!--android:layout_marginBottom="100dp">-->
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
                   android:layout_width="fill_parent"
@@ -72,9 +88,10 @@
 
     <LinearLayout
             android:layout_width="fill_parent"
-            android:layout_height="0dip"
-            android:layout_weight="0.45"
-            android:orientation="vertical">
+            android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="1"
+        android:layout_weight=".06">
 
         <TextView
                 android:id="@+id/PlacesListLabel"
@@ -87,12 +104,113 @@
         <ListView
                 android:id="@+id/PlacesList"
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="0dp"
+            android:layout_weight="1" />
     </LinearLayout>
 
-</LinearLayout>
+<!--</LinearLayout>-->
 
-        </android.support.v4.widget.SwipeRefreshLayout>
+
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+            android:gravity = "bottom"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_weight="0.22">
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_weight=".2">
+            <ImageView
+                android:layout_width="10dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/BotButImg1"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="0dp"
+                android:maxHeight="100px"
+                android:layout_weight=".2"
+                android:layout_gravity="center_horizontal|center"
+                android:src="@drawable/search"
+                android:layout_alignParentBottom="true"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:onClick="goto_MainActivity"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_weight=".2">
+            <ImageView
+                android:layout_width="10dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/BotButImg2"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="0dp"
+                android:maxHeight="100px"
+                android:layout_weight="0.2"
+                android:layout_gravity="center_horizontal|center"
+                android:src="@drawable/list"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_weight=".2">
+            <ImageView
+                android:layout_width="10dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/BotButImg3"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="0dp"
+                android:maxHeight="100px"
+                android:layout_weight="0.2"
+                android:layout_gravity="center_horizontal|center"
+                android:src="@drawable/barcode"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:onClick="goto_BarcodeActivity"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_weight=".2">
+            <ImageView
+                android:layout_width="10dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/BotButImg4"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="0dp"
+                android:maxHeight="100px"
+                android:layout_weight="0.2"
+                android:layout_gravity="center_horizontal|center"
+                android:src="@drawable/receipt"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:onClick="goto_CameraActivity"/>
+        </LinearLayout>
+
+
+
+        </LinearLayout>
+
+        </LinearLayout>
+
+    </android.support.v4.widget.SwipeRefreshLayout>
 
     </FrameLayout>
     <!-- The drawer is given a fixed width in dp and extends the full height of

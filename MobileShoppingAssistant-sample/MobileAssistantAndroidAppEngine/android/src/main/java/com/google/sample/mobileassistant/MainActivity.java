@@ -27,6 +27,7 @@ import com.google.sample.mobileassistantbackend
         .shoppingAssistant.model.PlaceInfo;
 import com.google.sample.mobileassistantbackend
         .shoppingAssistant.model.PlaceInfoCollection;
+import com.google.zxing.integration.android.IntentIntegrator;
 import com.googlecode.tesseract.android.TessBaseAPI;
 
 import android.app.Activity;
@@ -732,5 +733,22 @@ public class MainActivity extends ActionBarActivity
             ((MainActivity) activity).onSectionAttached(
                     getArguments().getInt(ARG_SECTION_NUMBER));
         }
+    }
+
+    public void goto_MainActivity(View view){
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
+
+    public void goto_BarcodeActivity(View view){
+//        Intent intent = new Intent(this, BarcodeActivity.class);
+//        startActivity(intent);
+        IntentIntegrator scanIntegrator = new IntentIntegrator(this);
+        scanIntegrator.initiateScan();
+    }
+
+    public void goto_CameraActivity(View view){
+        Intent intent = new Intent(this, CameraActivity.class);
+        startActivity(intent);
     }
 }
