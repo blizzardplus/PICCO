@@ -15,7 +15,7 @@
   -->
 
 <resources>
-    <string name="app_name">MobileAssistant</string>
+    <string name="app_name">Picco</string>
     <string name="checkIn">Refresh Store List</string>
     <string name="onlineShopping">Online Shopping</string>
     <string name="myAccount">My Account</string>
