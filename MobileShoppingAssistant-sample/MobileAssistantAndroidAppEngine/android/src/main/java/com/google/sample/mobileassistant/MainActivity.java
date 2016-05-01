@@ -90,6 +90,7 @@ public class MainActivity extends ActionBarActivity
      * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
      */
     private NavigationDrawerFragment mNavigationDrawerFragment;
+    private DrawerLayout mDrawerLayout;
 
     /**
      * Used to store the last screen title. For use in {@link #restoreActionBar()}.
@@ -241,6 +242,21 @@ public class MainActivity extends ActionBarActivity
                 R.id.navigation_drawer,
                 (DrawerLayout) findViewById(R.id.drawer_layout));
 
+//        View root_view =  inflater.inflate(R.layout.activity_main, container, false);
+
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+
+
+        if (mDrawerLayout != null) {
+            // Set a custom shadow that overlays the main content when the drawer opens
+//            mDrawerLayout.setDrawerShadow(R.drawable.drawer_shadow, GravityCompat.START);
+            // Enable ActionBar app icon to behave as action to toggle nav drawer
+            getSupportActionBar().setHomeButtonEnabled(true);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        }
+
+
         swipeLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_container);
         swipeLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
 
@@ -301,20 +317,20 @@ public class MainActivity extends ActionBarActivity
 
     public void onSectionAttached(int number) {
         switch (number) {
-            case 1:
+            case 2:
                 mTitle = getString(R.string.title_section1);
                 break;
-            case 2:
+            case 3:
                 mTitle = getString(R.string.title_section2);
                 Intent intent2 = new Intent(this, BarcodeActivity.class);
                 startActivity(intent2);
                 break;
-            case 3:
+            case 4:
                 mTitle = getString(R.string.title_section3);
                 Intent intent = new Intent(this, OCRActivity.class);
                 startActivity(intent);
                 break;
-            case 9:
+            case 10:
                 mTitle = getString(R.string.title_section9);
                 SignInActivity.onSignOut(this);
                 break;
