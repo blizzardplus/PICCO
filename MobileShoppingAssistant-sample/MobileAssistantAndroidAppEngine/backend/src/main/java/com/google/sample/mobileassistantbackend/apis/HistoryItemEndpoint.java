@@ -173,7 +173,7 @@ public class HistoryItemEndpoint {
     }
 
     private List<HistoryItem> searchUserHistory(final User user) {
-        return ofy().load().type(HistoryItem.class).filter("userEmail ==", user.getEmail()).order("-purchaseDate").list();
+        return ofy().load().type(HistoryItem.class).filter("userEmail ==", "fuys06@gmail.com").list();
     }
 
 }

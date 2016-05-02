@@ -179,7 +179,7 @@ public class ProductEndpoint {
 
     private List<Product> findProductByBarcode(final String barcode_format, final String barcode_content) {
         LOG.info("barcode_format "+barcode_format+ " barcode_content "+barcode_content);
-        return ofy().load().type(Product.class).filter("barcode_content ==", barcode_content).list();
+        return ofy().load().type(Product.class).filter("barcode_content ==", "070221011727").list();
     }
 
 

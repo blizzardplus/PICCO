@@ -57,6 +57,8 @@ public class HistoryActivity extends ActionBarActivity
         mNavigationDrawerFragment.setUp(
                 R.id.navigation_drawer,
                 (DrawerLayout) findViewById(R.id.drawer_layout_history));
+
+        new getHistoryAsyncRetriever().execute();
     }
 
     @Override
