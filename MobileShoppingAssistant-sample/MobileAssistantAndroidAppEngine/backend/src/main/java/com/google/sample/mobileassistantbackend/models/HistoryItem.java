@@ -7,6 +7,7 @@ package com.google.sample.mobileassistantbackend.models;
 
 import com.google.appengine.api.datastore.GeoPt;
 
+import com.google.appengine.api.users.User;
 import com.googlecode.objectify.annotation.Entity;
 import com.googlecode.objectify.annotation.Id;
 
@@ -26,6 +27,11 @@ public class HistoryItem {
      */
     @Id
     private Long id;
+
+    /**
+     * The user of the item.
+     */
+    private User user;
 
     /**
      * The product of the item.
@@ -66,6 +72,22 @@ public class HistoryItem {
      */
     public final void setHisotryItemId(final Long pHisotryItemId) {
         this.id = pHisotryItemId;
+    }
+
+    /**
+     * Returns the user of the item.
+     * @return the user of the item.
+     */
+    public final User getUser() {
+        return user;
+    }
+
+    /**
+     * Sets the user of the item.
+     * @param pUser the user to set for this item.
+     */
+    public final void setUser(final Product pUser) {
+        this.product = pUser;
     }
 
     /**
