@@ -96,7 +96,8 @@
         <activity
             android:name=".HistoryActivity"
             android:label="@string/title_activity_history" />
-        <activity android:name=".NearActivity"></activity>
+        <activity android:name=".NearActivity"
+            android:label="@string/title_activity_near" />
     </application>
 
 </manifest>
