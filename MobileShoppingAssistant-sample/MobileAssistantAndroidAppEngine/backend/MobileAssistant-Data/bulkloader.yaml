@@ -154,7 +154,7 @@ transformers:
 
     - property: purchaseDate
       external_name: purchaseDate
-      import_transform: transform.import_date_time('%Y-%m-%d %H:%M:%S')
+      import-transform: lambda x: transform.import_date_time('%Y-%m-%d %H:%M:%S')(x[:18])
 
     - property: purchasePrice
       external_name: purchasePrice
