@@ -73,5 +73,6 @@
     <string name="title_activity_barcode">Shopping Cart</string>
     <string name="title_activity_history">Shopping History</string>
     <string name="title_activity_near">Nearby Stores</string>
+    <string name="title_activity_camera">Sumbit Shopping Info</string>
 
 </resources>
