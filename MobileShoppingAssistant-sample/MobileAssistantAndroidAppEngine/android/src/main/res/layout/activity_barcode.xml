@@ -11,7 +11,10 @@
     <FrameLayout android:id="@+id/container" android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -20,27 +23,52 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.google.sample.mobileassistant.BarcodeActivity">
-    <Button android:id="@+id/scan_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:text="@string/scan"
-        android:onClick="goto_scanIntegrator"/>
+    tools:context="com.google.sample.mobileassistant.BarcodeActivity"
+    android:layout_weight="0.5">
+    <!--<Button android:id="@+id/scan_button"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:text="@string/scan"-->
+        <!--android:onClick="goto_scanIntegrator"/>-->
     <TextView
         android:id="@+id/scan_format"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textIsSelectable="true"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/scan_button" />
+        android:layout_centerHorizontal="true" />
     <TextView
         android:id="@+id/scan_content"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textIsSelectable="true"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/scan_format" />
+        android:layout_centerHorizontal="true" />
+
+
+</LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:layout_weight="3.5"
+        android:gravity="right"
+        android:layout_marginRight="20dp">
+
+        <Button
+            android:id="@+id/add_item_but"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/round_button"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="+"
+            android:textColor="#fff"
+            android:textAlignment="center"
+            android:textSize="@dimen/abc_dropdownitem_icon_width" />
+
+
+    </LinearLayout>
+
 </LinearLayout>
 
 

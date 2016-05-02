@@ -66,6 +66,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.logging.Logger;
 
+//import com.google.sample.mobileassistantbackend
+//        .shoppingAssistant.model.Product;
+//import com.google.sample.mobileassistantbackend
+//        .shoppingAssistant.model.HistoryItem;
+
 //import android.widget.SearchView;
 
 
