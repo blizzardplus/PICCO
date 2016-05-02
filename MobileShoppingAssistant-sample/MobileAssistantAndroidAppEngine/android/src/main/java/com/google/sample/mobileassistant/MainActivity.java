@@ -16,33 +16,7 @@
 
 package com.google.sample.mobileassistant;
 
-import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.GooglePlayServicesUtil;
-import com.google.android.gms.gcm.GoogleCloudMessaging;
-import com.google.sample.mobileassistantbackend
-        .shoppingAssistant.ShoppingAssistant;
-import com.google.sample.mobileassistantbackend
-        .shoppingAssistant.model.CheckIn;
-import com.google.sample.mobileassistantbackend
-        .shoppingAssistant.model.PlaceInfo;
-import com.google.sample.mobileassistantbackend
-        .shoppingAssistant.model.PlaceInfoCollection;
-import com.google.sample.mobileassistantbackend
-        .shoppingAssistant.model.Product;
-import com.google.sample.mobileassistantbackend
-        .shoppingAssistant.model.HistoryItem;
-import com.google.zxing.integration.android.IntentIntegrator;
-import com.googlecode.tesseract.android.TessBaseAPI;
-
 import android.app.Activity;
-import android.app.SearchManager;
-import android.net.Uri;
-import android.provider.MediaStore;
-import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.ActionBar;
-import android.support.v7.widget.SearchView;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -52,36 +26,47 @@ import android.location.Location;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.view.MenuItemCompat;
-import android.view.Gravity;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.SearchView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
-import android.support.v4.widget.DrawerLayout;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
-//import android.widget.SearchView;
-import android.widget.SearchView.OnQueryTextListener;
 import android.widget.SimpleAdapter;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.io.File;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.GooglePlayServicesUtil;
+import com.google.android.gms.gcm.GoogleCloudMessaging;
+import com.google.sample.mobileassistantbackend.shoppingAssistant.ShoppingAssistant;
+import com.google.sample.mobileassistantbackend.shoppingAssistant.model.CheckIn;
+import com.google.sample.mobileassistantbackend.shoppingAssistant.model.PlaceInfo;
+import com.google.sample.mobileassistantbackend.shoppingAssistant.model.PlaceInfoCollection;
+import com.google.sample.mobileassistantbackend.shoppingAssistant.model.ProductCollection;
+import com.google.zxing.integration.android.IntentIntegrator;
+
 import java.io.IOException;
-import java.lang.Runnable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.logging.Logger;
+
+//import android.widget.SearchView;
 
 
 
@@ -788,10 +773,13 @@ public class MainActivity extends ActionBarActivity
     @Override
     public boolean onQueryTextSubmit(String query) {
         // User pressed the search button
-        List<Product> result;
+        ProductCollection result;
+        List<Long> storeid_list = new ArrayList<Long>();
+        for (PlaceInfo place_cur : places) {
+            storeid_list.add(place_cur.getPlaceId());
+        }
         try {
-            result = shoppingAssistantAPI.products().searchProducts(query,places)
-                    .execute();
+            result = shoppingAssistantAPI.products().searchProducts(query, storeid_list).execute();
         } catch (IOException e) {
             String message = e.getMessage();
             if (message == null) {
