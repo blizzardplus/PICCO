@@ -212,29 +212,30 @@ public class HistoryActivity extends ActionBarActivity
          */
         @Override
         protected void onPostExecute(final  HistoryItemCollection result) {
-        /*
-        MainActivity.this.setProgressBarIndeterminateVisibility(false);
+
+//        MainActivity.this.setProgressBarIndeterminateVisibility(false);
 
         if (result == null || result.getItems() == null
                 || result.getItems().size() < 1) {
             if (result == null) {
-                placesListLabel.setText(R.string.failedToRetrievePlaces);
+                HistoryListLabel.setText(R.string.failedToRetrievePlaces);
             } else {
-                placesListLabel.setText(R.string.noPlacesNearby);
+                HistoryListLabel.setText(R.string.noHistory);
             }
 
-            placesList.setAdapter(null);
+            HistoryList.setAdapter(null);
             return;
         }
 
-        placesListLabel.setText(R.string.nearbyPlaces);
+//        placesListLabel.setText(R.string.nearbyPlaces);
+//
+//        ListAdapter placesListAdapter = createPlaceListAdapter(
+//                result.getItems());
+//        placesList.setAdapter(placesListAdapter);
+//
+//        places = result.getItems();
 
-        ListAdapter placesListAdapter = createPlaceListAdapter(
-                result.getItems());
-        placesList.setAdapter(placesListAdapter);
-
-        places = result.getItems();
-        */
+//            HistoryListLabel.setText(R.string.nearbyPlaces);
             history = result.getItems();
         }
 

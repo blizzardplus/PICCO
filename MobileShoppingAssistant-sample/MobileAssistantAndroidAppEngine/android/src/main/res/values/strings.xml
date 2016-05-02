@@ -29,6 +29,7 @@
     <string name="failedToRetrieveOffers">Failed to retrieve offers</string>
     <string name="failedToRetrieveRecommendations">Failed to retrieve recommendations</string>
     <string name="noPlacesNearby">No stores found nearby</string>
+    <string name="noHistory">Empty history!</string>
     <string name="noOffers">No offers currently available</string>
     <string name="noRecommendations">No product recommendations currently available</string>
     <string name="distance">Distance: %2$.1f miles</string>
