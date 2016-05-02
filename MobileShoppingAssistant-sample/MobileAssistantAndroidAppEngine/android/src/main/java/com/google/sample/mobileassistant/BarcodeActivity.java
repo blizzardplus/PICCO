@@ -2,22 +2,26 @@ package com.google.sample.mobileassistant;
 
 import android.app.Activity;
 //import android.app.ActionBar;
+import java.lang.String;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.os.Bundle;
+
+import com.google.api.client.repackaged.com.google.common.base.Objects;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,6 +29,7 @@ import android.widget.Toast;
 public class BarcodeActivity extends ActionBarActivity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks {
     private Button scanBtn;
+    private Button item_add_button;
     private TextView formatTxt, contentTxt;
 
     /**
@@ -42,7 +47,7 @@ public class BarcodeActivity extends ActionBarActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_barcode);
-        scanBtn = (Button)findViewById(R.id.scan_button);
+//        scanBtn = (Button)findViewById(R.id.scan_button);
         formatTxt = (TextView)findViewById(R.id.scan_format);
         contentTxt = (TextView)findViewById(R.id.scan_content);
 
@@ -56,13 +61,46 @@ public class BarcodeActivity extends ActionBarActivity
                 (DrawerLayout) findViewById(R.id.drawer_layout_barcode));
 
 
-//        scanBtn.setOnClickListener(this);
+        item_add_button = (Button) findViewById(R.id.add_item_but);
+        item_add_button.setOnClickListener(new OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                //Creating the instance of PopupMenu
+                PopupMenu popup = new PopupMenu(BarcodeActivity.this, item_add_button);
+                //Inflating the Popup using xml file
+                popup.getMenuInflater().inflate(R.menu.add_item_poupup_menu, popup.getMenu());
+
+                //registering popup with OnMenuItemClickListener
+                popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    public boolean onMenuItemClick(MenuItem item) {
+//                        item_id = new String(item.getItemId());
+//                        Toast.makeText(BarcodeActivity.this,"You Clicked : " + item.getNumericShortcut(),Toast.LENGTH_SHORT).show();
+
+                        if (Objects.equal(item.getTitle(), new String("by barcode"))){
+//                            Toast.makeText(BarcodeActivity.this,"You Clicked : ").show();
+                            IntentIntegrator scanIntegrator = new IntentIntegrator(BarcodeActivity.this);
+                            scanIntegrator.initiateScan();
+                        }
+                        return true;
+
+                    }
+                });
+
+                popup.show();//showing popup menu
+            }
+        });//closing the setOnClickListener method
+
+
+        //        scanBtn.setOnClickListener(this);
     }
+
+
     public void goto_scanIntegrator(View v){
-        if(v.getId()==R.id.scan_button){
-            IntentIntegrator scanIntegrator = new IntentIntegrator(this);
-            scanIntegrator.initiateScan();
-        }
+//        if(v.getId()==R.id.scan_button){
+//            IntentIntegrator scanIntegrator = new IntentIntegrator(this);
+//            scanIntegrator.initiateScan();
+//        }
     }
     public void onActivityResult(int requestCode, int resultCode, Intent intent) {
         IntentResult scanningResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, intent);

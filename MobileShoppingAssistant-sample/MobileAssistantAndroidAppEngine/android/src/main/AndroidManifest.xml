@@ -80,7 +80,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".BarcodeActivity" />
+        <activity android:name=".BarcodeActivity"
+            android:label="@string/title_activity_barcode"/>
         <activity android:name=".CameraActivity" />
         <activity android:name=".OCRActivity" />
         <activity
