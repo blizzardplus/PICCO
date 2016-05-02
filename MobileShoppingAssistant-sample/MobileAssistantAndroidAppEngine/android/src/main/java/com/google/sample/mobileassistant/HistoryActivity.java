@@ -253,7 +253,7 @@ public class HistoryActivity extends ActionBarActivity
                 Map<String, Object> map = new HashMap<>();
 //                map.put("placeIcon", R.drawable.ic_shopping_cart_black_48dp);
                 map.put("placeName", hist.getProductName());
-//                map.put("placeAddress", hist.getAddress());
+                map.put("placeAddress", hist.getPurchasePrice());
 //                String distance = String.format(
 //                        getString(R.string.distance),
 //                        hist.getDistanceInKilometers(),
