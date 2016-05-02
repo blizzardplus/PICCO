@@ -93,3 +93,43 @@ transformers:
       external_name: expiration
       import_transform: transform.import_date_time('%m/%d/%Y')
 
+- kind: Product
+  connector: csv
+  connector_options:
+  property_map:
+    - property: __key__
+      external_name: key
+      export_transform: transform.key_id_or_name_as_string
+
+    - property: id
+      external_name: id
+      # Type: String Stats: 6 properties of this type in this kind.
+
+    - property: description
+      external_name: description
+
+
+    - property: category
+      external_name: category
+
+    - property: weight
+      external_name: weight
+
+
+    - property: price
+      external_name: price
+
+    - property: barcode_format
+      external_name: barcode_format
+
+    - property: barcode_content
+      external_name: barcode_content
+
+    - property: name
+      external_name: name
+      # Type: String Stats: 6 properties of this type in this kind.
+
+    - property: storeid
+      external_name: storeid
+      # Type: String Stats: 6 properties of this type in this kind.
+

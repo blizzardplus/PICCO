@@ -22,13 +22,10 @@ import com.google.api.server.spi.config.ApiClass;
 import com.google.api.server.spi.config.ApiMethod;
 import com.google.api.server.spi.config.ApiNamespace;
 import com.google.api.server.spi.config.Named;
-import com.google.api.server.spi.response.BadRequestException;
-import com.google.appengine.api.datastore.GeoPt;
 import com.google.appengine.api.users.User;
 import com.google.sample.mobileassistantbackend.Constants;
 import com.google.sample.mobileassistantbackend.models.Product;
 import com.google.sample.mobileassistantbackend.utils.EndpointUtil;
-
 
 import java.util.ArrayList;
 import java.util.List;
@@ -77,9 +74,9 @@ public class ProductEndpoint {
      * authorized
      */
     @ApiMethod(path="get_product", httpMethod = "GET")
-    public final Product getProduct(@Named("id") final Long id, final User user)
-            throws ServiceException {
-        EndpointUtil.throwIfNotAdmin(user);
+    public final Product getProduct(@Named("id") final Long id, final User user) {
+          //  throws ServiceException {
+        //EndpointUtil.throwIfNotAdmin(user);
 
         return findProduct(id);
     }
@@ -87,18 +84,18 @@ public class ProductEndpoint {
     @ApiMethod(path="get_product_by_barcode", httpMethod = "GET")
     public final List<Product> getProductByBarcode(@Named("barcode_format") final String barcode_format,
                                              @Named("barcode_content") final String barcode_content,
-                                             final User user)
-            throws ServiceException {
-        EndpointUtil.throwIfNotAdmin(user);
+                                             final User user) {
+            //throws ServiceException {
+        //EndpointUtil.throwIfNotAdmin(user);
 
         return findProductByBarcode(barcode_format, barcode_content);
     }
 
     // Gets all products in a store
     @ApiMethod(path="get_store_products", httpMethod = "GET")
-    public final List<Product> getStoreProducts(@Named("storeid") final Long storeid, final User user)
-            throws ServiceException {
-        EndpointUtil.throwIfNotAdmin(user);
+    public final List<Product> getStoreProducts(@Named("storeid") final Long storeid, final User user) {
+           // throws ServiceException {
+        //EndpointUtil.throwIfNotAdmin(user);
 
         return findStoreProducts(storeid);
     }
@@ -107,9 +104,9 @@ public class ProductEndpoint {
     @ApiMethod(path="search_product", httpMethod = "GET")
     public final List<Product> searchProducts(@Named("product_name") final String product_name,
                                               @Named("store_list") final List<Long> store_list,
-                                              final User user)
-            throws ServiceException {
-        EndpointUtil.throwIfNotAdmin(user);
+                                              final User user) {
+        //    throws ServiceException {
+        //EndpointUtil.throwIfNotAdmin(user);
 
         return searchProducts(product_name, store_list);
     }
@@ -181,7 +178,8 @@ public class ProductEndpoint {
     }
 
     private List<Product> findProductByBarcode(final String barcode_format, final String barcode_content) {
-        return ofy().load().type(Product.class).filter("barcode_format ==", barcode_format).filter("barcode_content ==", barcode_content).list();
+        LOG.info("barcode_format "+barcode_format+ " barcode_content "+barcode_content);
+        return ofy().load().type(Product.class).filter("barcode_content ==", barcode_content).list();
     }
 
 
@@ -193,7 +191,7 @@ public class ProductEndpoint {
 
         List<Product> product_list = new ArrayList<Product>();
         for (Long storeid_cur : store_list) {
-            product_list.addAll(ofy().load().type(Product.class).filter("storeid ==", storeid_cur).filter("name ==", product_name).list());
+            product_list.addAll(ofy().load().type(Product.class).filter("name ==", product_name).list());
         }
         return product_list;
     }

@@ -74,17 +74,17 @@ public class HistoryItemEndpoint {
      * authorized
      */
     @ApiMethod(path="get_historyitem", httpMethod = "GET")
-    public final HistoryItem getHistoryItem(@Named("id") final Long id, final User user)
-            throws ServiceException {
-        EndpointUtil.throwIfNotAdmin(user);
+    public final HistoryItem getHistoryItem(@Named("id") final Long id, final User user) {
+         //   throws ServiceException {
+        //EndpointUtil.throwIfNotAdmin(user);
 
         return findHistoryItem(id);
     }
 
     @ApiMethod(path="get_user_history", httpMethod = "GET")
-    public final List<HistoryItem> getUserHistory(final User user)
-            throws ServiceException {
-        EndpointUtil.throwIfNotAdmin(user);
+    public final List<HistoryItem> getUserHistory(final User user) {
+         //   throws ServiceException {
+       // EndpointUtil.throwIfNotAdmin(user);
 
         return searchUserHistory(user);
     }
@@ -99,9 +99,10 @@ public class HistoryItemEndpoint {
      * authorized
      */
     @ApiMethod(path="inset_historyitem", httpMethod = "POST")
-    public final HistoryItem insertHistoryItem(final HistoryItem historyItem, final User user) throws
-            ServiceException {
-        EndpointUtil.throwIfNotAdmin(user);
+    public final HistoryItem insertHistoryItem(final HistoryItem historyItem, final User user) {
+            //throws
+           // ServiceException {
+        //EndpointUtil.throwIfNotAdmin(user);
 
         ofy().save().entity(historyItem).now();
 
@@ -109,9 +110,10 @@ public class HistoryItemEndpoint {
     }
 
     @ApiMethod(path="upload_receipt", httpMethod = "POST")
-    public final void uploadReceipt(@Named("text") final String text, final User user) throws
-            ServiceException {
-        EndpointUtil.throwIfNotAdmin(user);
+    public final void uploadReceipt(@Named("text") final String text, final User user) {
+        // throws
+        //    ServiceException {
+        //EndpointUtil.throwIfNotAdmin(user);
         // associate the text with the product database
 
         //ofy().save().entity().now();

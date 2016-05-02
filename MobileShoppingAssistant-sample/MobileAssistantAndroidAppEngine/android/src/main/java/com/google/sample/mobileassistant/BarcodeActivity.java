@@ -12,6 +12,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -190,6 +191,8 @@ public class BarcodeActivity extends ActionBarActivity
         protected ProductCollection doInBackground(final List<String>... params) {
             String barcode_format = params[0].get(0);
             String barcode_content = params[0].get(1);
+            Log.i("Barcode format",barcode_format);
+            Log.i("Barcode content",barcode_content);
             ProductCollection result;
             try {
                 result = shoppingAssistantAPI.products().getProductByBarcode(barcode_format, barcode_content).execute();
@@ -202,6 +205,10 @@ public class BarcodeActivity extends ActionBarActivity
                 result = null;
 
             }
+            if (result != null && result.getItems() != null)
+                Log.i("Barcode", "barcode result: "+result.getItems().get(0).toString());
+            else
+                Log.i("Barcode", "barcode resut is empty ");
             return result;
         }
     }

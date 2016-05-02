@@ -881,6 +881,10 @@ public class MainActivity extends ActionBarActivity
                 result = null;
 
             }
+            if (result != null && result.getItems() != null)
+                Log.i("Search", "search result: "+result.getItems().get(0).toString());
+            else
+                Log.i("Search", "search resut is empty ");
             return result;
         }
     }
