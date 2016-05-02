@@ -1,0 +1,2 @@
+name,description,id,category,weight,price,barcode_format,barcode_content,storeid
+"Banana","Organinc Banana", 1,"fruits",1,70,"01","0097323590234",1
