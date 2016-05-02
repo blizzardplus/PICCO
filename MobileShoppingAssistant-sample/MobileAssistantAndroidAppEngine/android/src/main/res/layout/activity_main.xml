@@ -118,8 +118,8 @@
                 android:orientation="horizontal"
             android:gravity = "bottom"
             android:layout_gravity="bottom|center_horizontal"
-            android:layout_weight=".32"
-            android:background="@color/wallet_highlighted_text_holo_dark">
+            android:layout_weight=".40"
+            android:background="@android:color/holo_orange_dark">
 
 
             <LinearLayout
@@ -138,8 +138,8 @@
                 android:layout_gravity="center_horizontal|center"
                 android:src="@drawable/search"
                 android:layout_alignParentBottom="true"
-                android:layout_marginRight="20dp"
-                android:layout_marginLeft="20dp"
+                android:layout_marginRight="25dp"
+                android:layout_marginLeft="25dp"
                 android:onClick="goto_MainActivity"/>
             </LinearLayout>
 
@@ -159,8 +159,8 @@
                 android:layout_gravity="center_horizontal|center"
                 android:src="@drawable/list"
                 android:layout_alignParentBottom="true"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"/>
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"/>
             </LinearLayout>
 
             <LinearLayout
@@ -179,8 +179,8 @@
                 android:layout_gravity="center_horizontal|center"
                 android:src="@drawable/barcode"
                 android:layout_alignParentBottom="true"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
                 android:onClick="goto_BarcodeActivity"/>
             </LinearLayout>
 
@@ -200,8 +200,8 @@
                 android:layout_gravity="center_horizontal|center"
                 android:src="@drawable/receipt"
                 android:layout_alignParentBottom="true"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
                 android:onClick="goto_CameraActivity"/>
         </LinearLayout>
 

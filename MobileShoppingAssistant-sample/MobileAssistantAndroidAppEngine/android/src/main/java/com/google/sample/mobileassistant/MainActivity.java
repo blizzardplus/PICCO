@@ -31,6 +31,8 @@ import com.google.zxing.integration.android.IntentIntegrator;
 import com.googlecode.tesseract.android.TessBaseAPI;
 
 import android.app.Activity;
+import android.net.Uri;
+import android.provider.MediaStore;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
@@ -63,6 +65,7 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.File;
 import java.io.IOException;
 import java.lang.Runnable;
 import java.util.ArrayList;
@@ -331,7 +334,7 @@ public class MainActivity extends ActionBarActivity
                 Intent intent = new Intent(this, OCRActivity.class);
                 startActivity(intent);
                 break;
-            case 10:
+            case 5:
                 mTitle = getString(R.string.title_section9);
                 SignInActivity.onSignOut(this);
                 break;

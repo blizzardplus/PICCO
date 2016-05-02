@@ -106,6 +106,7 @@ public class OCRActivity extends Activity {
         _button.setOnClickListener(new ButtonClickHandler());
 
         _path = DATA_PATH + "/ocr.jpg";
+
     }
 
     public class ButtonClickHandler implements View.OnClickListener {
