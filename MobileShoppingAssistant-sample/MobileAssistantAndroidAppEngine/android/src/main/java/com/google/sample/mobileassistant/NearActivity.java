@@ -49,29 +49,6 @@ public class NearActivity extends ActionBarActivity
         // Attempt to start an activity that can handle the Intent
         startActivity(mapIntent);
 
-
-//        try {
-//            map = ((MapFragment) getFragmentManager().findFragmentById(R.id.map))
-//                    .getMap();
-//            if (map!=null){
-//                map.getUiSettings().setCompassEnabled(true);
-//                map.setTrafficEnabled(true);
-//                map.setMyLocationEnabled(true);
-//
-//                // Move the camera instantly to defaultLatLng.
-//                map.moveCamera(CameraUpdateFactory.newLatLngZoom(defaultLatLng, zoomLevel));
-//
-//                map.addMarker(new MarkerOptions().position(defaultLatLng)
-//                        .title("This is the title")
-//                        .snippet("This is the snippet within the InfoWindow")
-//                        .icon(BitmapDescriptorFactory.fromResource(R.drawable.logo)));
-//
-////                map.setOnInfoWindowClickListener(NearActivity.this);
-//            }
-//        }catch (NullPointerException e) {
-//            e.printStackTrace();
-//        }
-
     }
 
     @Override
@@ -97,7 +74,7 @@ public class NearActivity extends ActionBarActivity
                 break;
             case 4:
                 mTitle = getString(R.string.title_section4);
-                Intent intent3 = new Intent(this, OCRActivity.class);
+                Intent intent3 = new Intent(this, CameraActivity.class);
                 startActivity(intent3);
                 break;
             case 6:

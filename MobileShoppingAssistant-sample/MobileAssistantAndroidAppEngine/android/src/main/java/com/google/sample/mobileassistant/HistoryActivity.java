@@ -61,7 +61,7 @@ public class HistoryActivity extends ActionBarActivity
                 break;
             case 4:
                 mTitle = getString(R.string.title_section4);
-                Intent intent3 = new Intent(this, OCRActivity.class);
+                Intent intent3 = new Intent(this, CameraActivity.class);
                 startActivity(intent3);
                 break;
             case 6:

@@ -332,7 +332,8 @@ public class MainActivity extends ActionBarActivity
                 break;
             case 4:
                 mTitle = getString(R.string.title_section4);
-                Intent intent = new Intent(this, OCRActivity.class);
+//                OCRActivity
+                Intent intent = new Intent(this, CameraActivity.class);
                 startActivity(intent);
                 break;
             case 6:

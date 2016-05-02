@@ -161,6 +161,4 @@ public class CameraActivity extends ActionBarActivity implements View.OnClickLis
     }
 
 
-
-
 }
