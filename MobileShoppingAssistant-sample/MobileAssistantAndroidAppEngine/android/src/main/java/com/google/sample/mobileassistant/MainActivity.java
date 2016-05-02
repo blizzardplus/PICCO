@@ -323,30 +323,36 @@ public class MainActivity extends ActionBarActivity
     public void onSectionAttached(int number) {
         switch (number) {
             case 2:
-                mTitle = getString(R.string.title_section1);
+                mTitle = getString(R.string.title_section2);
                 break;
             case 3:
-                mTitle = getString(R.string.title_section2);
+                mTitle = getString(R.string.title_section3);
                 Intent intent2 = new Intent(this, BarcodeActivity.class);
                 startActivity(intent2);
                 break;
             case 4:
-                mTitle = getString(R.string.title_section3);
-                Intent intent = new Intent(this, OCRActivity.class);
+                mTitle = getString(R.string.title_section4);
+//                OCRActivity
+                Intent intent = new Intent(this, CameraActivity.class);
                 startActivity(intent);
                 break;
             case 6:
-                mTitle = getString(R.string.title_section5);
+                mTitle = getString(R.string.title_section6);
                 Intent intent5 = new Intent(this, HistoryActivity.class);
                 startActivity(intent5);
                 break;
-            case 9:
+            case 8:
                 mTitle = getString(R.string.title_section8);
+                Intent intent7 = new Intent(this, NearActivity.class);
+                startActivity(intent7);
+                break;
+            case 9:
+                mTitle = getString(R.string.title_section9);
                 Intent intent8 = new Intent(this, SettingsActivity.class);
                 startActivity(intent8);
                 break;
             case 10:
-                mTitle = getString(R.string.title_section9);
+                mTitle = getString(R.string.title_section10);
                 SignInActivity.onSignOut(this);
                 break;
         }

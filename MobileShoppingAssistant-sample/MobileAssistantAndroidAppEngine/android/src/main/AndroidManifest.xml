@@ -83,7 +83,8 @@
         <activity
             android:name=".BarcodeActivity"
             android:label="@string/title_activity_barcode" />
-        <activity android:name=".CameraActivity" />
+        <activity android:name=".CameraActivity"
+            android:label="@string/title_activity_camera"/>
         <activity android:name=".OCRActivity" />
         <activity
             android:name=".SettingsActivity"
@@ -93,8 +94,11 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.google.sample.mobileassistant.MainActivity" />
         </activity>
-        <activity android:name=".HistoryActivity"
-            android:label="@string/title_activity_history"/>
+        <activity
+            android:name=".HistoryActivity"
+            android:label="@string/title_activity_history" />
+        <activity android:name=".NearActivity"
+            android:label="@string/title_activity_near" />
     </application>
 
 </manifest>

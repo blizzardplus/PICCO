@@ -2,6 +2,7 @@ package com.google.sample.mobileassistant;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
@@ -12,7 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class HistoryActivity extends ActionBarActivity
+public class NearActivity extends ActionBarActivity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks {
 
     private NavigationDrawerFragment mNavigationDrawerFragment;
@@ -26,7 +27,7 @@ public class HistoryActivity extends ActionBarActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_history);
+        setContentView(R.layout.activity_near);
 
         mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
@@ -35,7 +36,19 @@ public class HistoryActivity extends ActionBarActivity
         // Set up the drawer.
         mNavigationDrawerFragment.setUp(
                 R.id.navigation_drawer,
-                (DrawerLayout) findViewById(R.id.drawer_layout_history));
+                (DrawerLayout) findViewById(R.id.drawer_layout_near));
+
+        // Create a Uri from an intent string. Use the result to create an Intent.
+        Uri gmmIntentUri = Uri.parse("geo:0,0?q=grocery stores");
+
+        // Create an Intent from gmmIntentUri. Set the action to ACTION_VIEW
+        Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+        // Make the Intent explicit by setting the Google Maps package
+        mapIntent.setPackage("com.google.android.apps.maps");
+
+        // Attempt to start an activity that can handle the Intent
+        startActivity(mapIntent);
+
     }
 
     @Override
@@ -66,11 +79,11 @@ public class HistoryActivity extends ActionBarActivity
                 break;
             case 6:
                 mTitle = getString(R.string.title_section6);
+                Intent intent5 = new Intent(this, HistoryActivity.class);
+                startActivity(intent5);
                 break;
             case 8:
                 mTitle = getString(R.string.title_section8);
-                Intent intent7 = new Intent(this, NearActivity.class);
-                startActivity(intent7);
                 break;
             case 9:
                 mTitle = getString(R.string.title_section9);
@@ -128,7 +141,7 @@ public class HistoryActivity extends ActionBarActivity
         @Override
         public void onAttach(Activity activity) {
             super.onAttach(activity);
-            ((HistoryActivity) activity).onSectionAttached(
+            ((NearActivity) activity).onSectionAttached(
                     getArguments().getInt(ARG_SECTION_NUMBER));
         }
     }

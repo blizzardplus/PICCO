@@ -55,7 +55,7 @@
     <string name="title_section5">Hot Deals</string>
     <string name="title_section6">Shopping History</string>
     <string name="title_section7">My Shopping Trends</string>
-    <string name="title_section8">Bookmarks</string>
+    <string name="title_section8">Nearby Stores</string>
     <string name="title_section9">Settings</string>
     <string name="title_section10">Sign Out</string>
 
@@ -72,4 +72,7 @@
     <string name="title_activity_settings">Settings</string>
     <string name="title_activity_barcode">Shopping Cart</string>
     <string name="title_activity_history">Shopping History</string>
+    <string name="title_activity_near">Nearby Stores</string>
+    <string name="title_activity_camera">Sumbit Shopping Info</string>
+
 </resources>
