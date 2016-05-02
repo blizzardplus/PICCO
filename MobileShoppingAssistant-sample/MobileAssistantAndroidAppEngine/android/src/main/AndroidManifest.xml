@@ -80,8 +80,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".BarcodeActivity"
-            android:label="@string/title_activity_barcode"/>
+        <activity
+            android:name=".BarcodeActivity"
+            android:label="@string/title_activity_barcode" />
         <activity android:name=".CameraActivity" />
         <activity android:name=".OCRActivity" />
         <activity
@@ -92,6 +93,8 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.google.sample.mobileassistant.MainActivity" />
         </activity>
+        <activity android:name=".HistoryActivity"
+            android:label="@string/title_activity_history"/>
     </application>
 
 </manifest>
