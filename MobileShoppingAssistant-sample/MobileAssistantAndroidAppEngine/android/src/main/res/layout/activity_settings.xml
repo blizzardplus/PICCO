@@ -1,0 +1,91 @@
+
+
+
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools" android:id="@+id/drawer_layout_settings"
+android:layout_width="match_parent" android:layout_height="match_parent"
+tools:context="com.google.sample.mobileassistant.SettingsActivity">
+
+<!-- As the main content view, the view below consumes the entire
+         space available using match_parent in both dimensions. -->
+<FrameLayout android:id="@+id/container" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:orientation="vertical">
+
+
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:textAppearance="?android:attr/textAppearanceMedium"
+           android:text="Notifications"
+           android:id="@+id/textView1"
+           android:layout_marginTop="20dp"
+           android:layout_marginLeft="20dp"
+           android:layout_marginBottom="10dp" />
+
+       <View
+           android:layout_width="match_parent"
+           android:layout_height="1dp"
+           android:background="@android:color/darker_gray"
+           android:layout_marginTop="10dp"
+           android:layout_marginBottom="10dp" />
+
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:textAppearance="?android:attr/textAppearanceMedium"
+           android:text="Distance Units"
+           android:id="@+id/textView2"
+           android:layout_marginTop="10dp"
+           android:layout_marginLeft="20dp"
+           android:layout_marginBottom="10dp" />
+
+       <View
+           android:layout_width="match_parent"
+           android:layout_height="1dp"
+           android:background="@android:color/darker_gray"
+           android:layout_marginTop="10dp"
+           android:layout_marginBottom="10dp" />
+
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:textAppearance="?android:attr/textAppearanceMedium"
+           android:text="Clear History"
+           android:id="@+id/textView3"
+           android:layout_marginTop="10dp"
+           android:layout_marginLeft="20dp"
+           android:layout_marginBottom="10dp" />
+
+       <View
+           android:layout_width="match_parent"
+           android:layout_height="1dp"
+           android:background="@android:color/darker_gray"
+           android:layout_marginTop="10dp"
+           android:layout_marginBottom="10dp" />
+
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:textAppearance="?android:attr/textAppearanceMedium"
+           android:text="Privacy Settings"
+           android:id="@+id/textView4"
+           android:layout_marginTop="10dp"
+           android:layout_marginLeft="20dp"
+           android:layout_marginBottom="10dp" />
+
+   </LinearLayout>
+
+</FrameLayout>
+<!-- The drawer is given a fixed width in dp and extends the full height of
+     the container. -->
+     <fragment android:id="@+id/navigation_drawer"
+        android:layout_width="@dimen/navigation_drawer_width" android:layout_height="match_parent"
+        android:layout_gravity="start" android:name="com.google.sample.mobileassistant.NavigationDrawerFragment"
+        tools:layout="@layout/drawer_main" />
+
+</android.support.v4.widget.DrawerLayout>

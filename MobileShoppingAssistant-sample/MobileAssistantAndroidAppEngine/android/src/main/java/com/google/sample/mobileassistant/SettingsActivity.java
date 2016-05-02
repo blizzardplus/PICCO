@@ -1,35 +1,20 @@
 package com.google.sample.mobileassistant;
 
 import android.app.Activity;
-//import android.app.ActionBar;
+import android.content.Intent;
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
-import android.os.Bundle;
-import android.os.Bundle;
-import com.google.zxing.integration.android.IntentIntegrator;
-import com.google.zxing.integration.android.IntentResult;
-import android.content.Intent;
-import android.graphics.drawable.ColorDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.TextView;
-import android.widget.Toast;
 
-
-public class BarcodeActivity extends ActionBarActivity
+public class SettingsActivity extends ActionBarActivity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks {
-    private Button scanBtn;
-    private TextView formatTxt, contentTxt;
 
-    /**
-     * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
-     */
     private NavigationDrawerFragment mNavigationDrawerFragment;
     private DrawerLayout mDrawerLayout;
 
@@ -41,10 +26,8 @@ public class BarcodeActivity extends ActionBarActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_barcode);
-        scanBtn = (Button)findViewById(R.id.scan_button);
-        formatTxt = (TextView)findViewById(R.id.scan_format);
-        contentTxt = (TextView)findViewById(R.id.scan_content);
+        setContentView(R.layout.activity_settings);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
@@ -53,30 +36,7 @@ public class BarcodeActivity extends ActionBarActivity
         // Set up the drawer.
         mNavigationDrawerFragment.setUp(
                 R.id.navigation_drawer,
-                (DrawerLayout) findViewById(R.id.drawer_layout_barcode));
-
-
-//        scanBtn.setOnClickListener(this);
-    }
-    public void goto_scanIntegrator(View v){
-        if(v.getId()==R.id.scan_button){
-            IntentIntegrator scanIntegrator = new IntentIntegrator(this);
-            scanIntegrator.initiateScan();
-        }
-    }
-    public void onActivityResult(int requestCode, int resultCode, Intent intent) {
-        IntentResult scanningResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, intent);
-        if (scanningResult != null) {
-            String scanContent = scanningResult.getContents();
-            String scanFormat = scanningResult.getFormatName();
-            formatTxt.setText("FORMAT: " + scanFormat);
-            contentTxt.setText("CONTENT: " + scanContent);
-        }
-        else{
-            Toast toast = Toast.makeText(getApplicationContext(),
-                    "No scan data received!", Toast.LENGTH_SHORT);
-            toast.show();
-        }
+                (DrawerLayout) findViewById(R.id.drawer_layout_settings));
     }
 
     @Override
@@ -97,6 +57,8 @@ public class BarcodeActivity extends ActionBarActivity
                 break;
             case 3:
                 mTitle = getString(R.string.title_section2);
+                Intent intent2 = new Intent(this, BarcodeActivity.class);
+                startActivity(intent2);
                 break;
             case 4:
                 mTitle = getString(R.string.title_section3);
@@ -105,8 +67,6 @@ public class BarcodeActivity extends ActionBarActivity
                 break;
             case 9:
                 mTitle = getString(R.string.title_section8);
-                Intent intent8 = new Intent(this, SettingsActivity.class);
-                startActivity(intent8);
                 break;
             case 10:
                 mTitle = getString(R.string.title_section9);
@@ -122,7 +82,6 @@ public class BarcodeActivity extends ActionBarActivity
         actionBar.setDisplayShowTitleEnabled(true);
         actionBar.setTitle(mTitle);
     }
-
 
     /**
      * A placeholder fragment containing a simple view.
@@ -159,7 +118,7 @@ public class BarcodeActivity extends ActionBarActivity
         @Override
         public void onAttach(Activity activity) {
             super.onAttach(activity);
-            ((BarcodeActivity) activity).onSectionAttached(
+            ((SettingsActivity) activity).onSectionAttached(
                     getArguments().getInt(ARG_SECTION_NUMBER));
         }
     }
