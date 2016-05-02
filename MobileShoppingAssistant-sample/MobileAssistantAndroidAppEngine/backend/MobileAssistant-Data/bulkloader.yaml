@@ -133,3 +133,31 @@ transformers:
       external_name: storeid
       # Type: String Stats: 6 properties of this type in this kind.
 
+
+- kind: Product
+  connector: csv
+  connector_options:
+  property_map:
+    - property: __key__
+      external_name: key
+      export_transform: transform.key_id_or_name_as_string
+
+    - property: userEmail
+      external_name: userEmail
+
+
+    - property: productName
+      external_name: productName
+
+    - property: productid
+      external_name: productid
+
+    - property: purchaseDate
+      external_name: purchaseDate
+      import_transform: transform.import_date_time('%Y-%m-%d %H:%M:%S')
+
+    - property: purchasePrice
+      external_name: purchasePrice
+
+    - property: placeName
+      external_name: placeName
