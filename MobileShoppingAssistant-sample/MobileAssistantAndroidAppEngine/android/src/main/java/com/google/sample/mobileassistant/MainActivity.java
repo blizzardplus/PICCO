@@ -161,7 +161,7 @@ public class MainActivity extends ActionBarActivity
             = new OnItemClickListener() {
         @Override
         public void onItemClick(final AdapterView<?> arg0, final View arg1,
-                final int arg2, final long arg3) {
+                                final int arg2, final long arg3) {
             PlaceInfo selectedPlace = places.get((int) arg3);
 
             new CheckInTask().execute(selectedPlace);
@@ -190,6 +190,7 @@ public class MainActivity extends ActionBarActivity
 
     /**
      * Returns the application version.
+     *
      * @param context the Application context.
      * @return Application's version code from the {@code PackageManager}.
      */
@@ -263,7 +264,8 @@ public class MainActivity extends ActionBarActivity
         swipeLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_container);
         swipeLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
 
-            @Override public void onRefresh() {
+            @Override
+            public void onRefresh() {
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
@@ -350,6 +352,7 @@ public class MainActivity extends ActionBarActivity
     /**
      * Event handler for Button widget that allows the user to refresh the list
      * of nearby places.
+     *
      * @param view the ListView to put the places.
      */
     public final void onRetrievePlaces(final View view) {
@@ -410,6 +413,7 @@ public class MainActivity extends ActionBarActivity
     /**
      * Checks if Google Play Services are installed and if not it initializes
      * opening the dialog to allow user to install Google Play Services.
+     *
      * @return a boolean indicating if the Google Play Services are available.
      */
     private boolean checkPlayServices() {
@@ -432,6 +436,7 @@ public class MainActivity extends ActionBarActivity
      * Gets the current registration ID for application on GCM service.
      * <p/>
      * If result is empty, the app needs to register.
+     *
      * @param applicationContext the Application context.
      * @return registration ID, or empty string if there is no existing
      * registration ID.
@@ -459,11 +464,12 @@ public class MainActivity extends ActionBarActivity
     /**
      * Stores the registration ID and app versionCode in the application's
      * {@code SharedPreferences}.
+     *
      * @param applicationContext application's context.
      * @param registrationId     registration ID
      */
     private void storeRegistrationId(final Context applicationContext,
-            final String registrationId) {
+                                     final String registrationId) {
         final SharedPreferences prefs = getGCMPreferences(applicationContext);
         int appVersion = getAppVersion(applicationContext);
         Log.i(TAG, "Saving regId on app version " + appVersion);
@@ -478,7 +484,7 @@ public class MainActivity extends ActionBarActivity
      * @return Application's {@code SharedPreferences}.
      */
     private SharedPreferences getGCMPreferences(final Context
-            applicationContext) {
+                                                        applicationContext) {
         // This sample app persists the registration ID in shared preferences,
         // but how you store the registration ID in your app is up to you.
         return getSharedPreferences(MainActivity.class.getSimpleName(),
@@ -499,7 +505,7 @@ public class MainActivity extends ActionBarActivity
             storeRegistrationId(context, regId);
         } catch (IOException e) {
             LOG.warning("Exception when sending registration ID to the "
-                    + "backend = "+ e.getMessage());
+                    + "backend = " + e.getMessage());
             // If there is an error, we will try again to register the
             // device with GCM the next time the MainActivity starts.
         }
@@ -553,11 +559,12 @@ public class MainActivity extends ActionBarActivity
 
         /**
          * Creates ListAdapter populated with the list of nearby places.
+         *
          * @param placesRetrieved the list of places to put in the adapter.
          * @return an adapter populated with the list of nearby places.
          */
         private ListAdapter createPlaceListAdapter(final List<PlaceInfo>
-                placesRetrieved) {
+                                                           placesRetrieved) {
             final double kilometersInAMile = 1.60934;
             List<Map<String, Object>> data = new ArrayList<>();
             for (PlaceInfo place : placesRetrieved) {
@@ -586,8 +593,9 @@ public class MainActivity extends ActionBarActivity
         /**
          * Retrieves the list of nearby places through appropriate
          * CloudEndpoint.
+         *
          * @param params the current geolocation for which to retrieve the list
-         *      of nearby places.
+         *               of nearby places.
          * @return the collection of retrieved nearby places.
          */
         @Override
@@ -747,17 +755,17 @@ public class MainActivity extends ActionBarActivity
 
     // Bottom button functions
 
-    public void goto_MainActivity(View view){
+    public void goto_MainActivity(View view) {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 
-    public void goto_BarcodeActivity(View view){
+    public void goto_BarcodeActivity(View view) {
         IntentIntegrator scanIntegrator = new IntentIntegrator(this);
         scanIntegrator.initiateScan();
     }
 
-    public void goto_CameraActivity(View view){
+    public void goto_CameraActivity(View view) {
         Intent intent = new Intent(this, CameraActivity.class);
         startActivity(intent);
     }
@@ -778,26 +786,83 @@ public class MainActivity extends ActionBarActivity
     @Override
     public boolean onQueryTextSubmit(String query) {
         // User pressed the search button
-        ProductCollection result;
-        List<Long> storeid_list = new ArrayList<Long>();
-        for (PlaceInfo place_cur : places) {
-            storeid_list.add(place_cur.getPlaceId());
-        }
-        try {
-            result = shoppingAssistantAPI.products().searchProducts(query, storeid_list).execute();
-        } catch (IOException e) {
-            String message = e.getMessage();
-            if (message == null) {
-                message = e.toString();
-            }
-            LOG.warning("Exception when checking in =" + message);
-        }
-        return false;
+        new searchProductsAsyncRetriever().execute(query);
+        return true;
     }
 
     @Override
     public boolean onQueryTextChange(String newText) {
         // User changed the text
         return false;
+    }
+
+    private class searchProductsAsyncRetriever
+            extends AsyncTask<String, Void, ProductCollection> {
+
+        /**
+         * Updates UI to indicate that the list of nearby places is being
+         * retrieved.
+         */
+    /*
+    @Override
+    protected void onPreExecute() {
+        placesListLabel.setText(R.string.retrievingPlaces);
+        MainActivity.this.setProgressBarIndeterminateVisibility(true);
+    }
+    */
+
+        /**
+         * Updates UI to indicate that retrieval of the list of nearby places
+         * completed successfully or failed.
+         */
+        @Override
+        protected void onPostExecute(final ProductCollection result) {
+        /*
+        MainActivity.this.setProgressBarIndeterminateVisibility(false);
+
+        if (result == null || result.getItems() == null
+                || result.getItems().size() < 1) {
+            if (result == null) {
+                placesListLabel.setText(R.string.failedToRetrievePlaces);
+            } else {
+                placesListLabel.setText(R.string.noPlacesNearby);
+            }
+
+            placesList.setAdapter(null);
+            return;
+        }
+
+        placesListLabel.setText(R.string.nearbyPlaces);
+
+        ListAdapter placesListAdapter = createPlaceListAdapter(
+                result.getItems());
+        placesList.setAdapter(placesListAdapter);
+
+        places = result.getItems();
+        */
+        }
+
+
+        @Override
+        protected ProductCollection doInBackground(final String... params) {
+            String query = params[0];
+            ProductCollection result;
+            List<Long> storeid_list = new ArrayList<Long>();
+            for (PlaceInfo place_cur : places) {
+                storeid_list.add(place_cur.getPlaceId());
+            }
+            try {
+                result = shoppingAssistantAPI.products().searchProducts(query, storeid_list).execute();
+            } catch (IOException e) {
+                String message = e.getMessage();
+                if (message == null) {
+                    message = e.toString();
+                }
+                LOG.warning("Exception when checking in =" + message);
+                result = null;
+
+            }
+            return result;
+        }
     }
 }
