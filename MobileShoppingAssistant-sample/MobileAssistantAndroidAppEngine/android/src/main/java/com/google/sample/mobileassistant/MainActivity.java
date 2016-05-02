@@ -335,6 +335,10 @@ public class MainActivity extends ActionBarActivity
                 Intent intent = new Intent(this, OCRActivity.class);
                 startActivity(intent);
                 break;
+            case 6:
+                mTitle = getString(R.string.title_section5);
+                Intent intent5 = new Intent(this, HistoryActivity.class);
+                startActivity(intent5);
             case 9:
                 mTitle = getString(R.string.title_section8);
                 Intent intent8 = new Intent(this, SettingsActivity.class);
