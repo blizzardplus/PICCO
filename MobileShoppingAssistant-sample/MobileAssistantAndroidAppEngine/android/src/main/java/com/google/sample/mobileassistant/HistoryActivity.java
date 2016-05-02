@@ -15,7 +15,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.SimpleAdapter;
 import android.widget.TextView;
+import android.widget.ListAdapter;
 
 import com.google.sample.mobileassistantbackend.shoppingAssistant.ShoppingAssistant;
 import com.google.sample.mobileassistantbackend.shoppingAssistant.model.HistoryItemCollection;
@@ -23,7 +25,10 @@ import com.google.sample.mobileassistantbackend.shoppingAssistant.model.HistoryI
 import com.google.sample.mobileassistantbackend.shoppingAssistant.model.PlaceInfo;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.logging.Logger;
 
 public class HistoryActivity extends ActionBarActivity
@@ -229,9 +234,9 @@ public class HistoryActivity extends ActionBarActivity
 
 //        placesListLabel.setText(R.string.nearbyPlaces);
 //
-//        ListAdapter placesListAdapter = createPlaceListAdapter(
-//                result.getItems());
-//        placesList.setAdapter(placesListAdapter);
+        ListAdapter HistoryListAdapter = createHistoryListAdapter(
+                result.getItems());
+        HistoryList.setAdapter(HistoryListAdapter);
 //
 //        places = result.getItems();
 
@@ -239,6 +244,32 @@ public class HistoryActivity extends ActionBarActivity
             history = result.getItems();
         }
 
+
+        private ListAdapter createHistoryListAdapter(final List<HistoryItem>
+                                                           placesRetrieved) {
+            final double kilometersInAMile = 1.60934;
+            List<Map<String, Object>> data = new ArrayList<>();
+            for (HistoryItem hist : placesRetrieved) {
+                Map<String, Object> map = new HashMap<>();
+//                map.put("placeIcon", R.drawable.ic_shopping_cart_black_48dp);
+                map.put("placeName", hist.getProductName());
+//                map.put("placeAddress", hist.getAddress());
+//                String distance = String.format(
+//                        getString(R.string.distance),
+//                        hist.getDistanceInKilometers(),
+//                        hist.getDistanceInKilometers() / kilometersInAMile);
+//                map.put("placeDistance", distance);
+                data.add(map);
+            }
+
+            return new SimpleAdapter(HistoryActivity.this, data,
+                    R.layout.place_item,
+                    new String[]{"placeIcon", "placeName", "placeAddress",
+                            "placeDistance"},
+                    new int[]{R.id.place_Icon, R.id.place_name,
+                            R.id.place_address,
+                            R.id.place_distance});
+        }
 
         @Override
         protected HistoryItemCollection doInBackground(Void... params) {
