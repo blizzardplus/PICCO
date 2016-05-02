@@ -28,7 +28,7 @@ import com.google.appengine.api.users.User;
 import com.google.sample.mobileassistantbackend.Constants;
 import com.google.sample.mobileassistantbackend.models.Product;
 import com.google.sample.mobileassistantbackend.utils.EndpointUtil;
-    
+
 
 import java.util.List;
 import java.util.logging.Logger;
@@ -52,13 +52,13 @@ import static com.google.sample.mobileassistantbackend.OfyService.ofy;
                 Constants.WEB_CLIENT_ID},
         audiences = {Constants.AUDIENCE_ID}
 )
-public class ProductsEndpoint {
+public class ProductEndpoint {
 
     /**
      * Log output.
      */
     private static final Logger LOG = Logger
-            .getLogger(ProductsEndpoint.class.getName());
+            .getLogger(ProductEndpoint.class.getName());
 
     /**
      * Maximum number of products to return.
