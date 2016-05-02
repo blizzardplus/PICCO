@@ -2,6 +2,7 @@ package com.google.sample.mobileassistant;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
@@ -36,6 +37,41 @@ public class NearActivity extends ActionBarActivity
         mNavigationDrawerFragment.setUp(
                 R.id.navigation_drawer,
                 (DrawerLayout) findViewById(R.id.drawer_layout_near));
+
+        // Create a Uri from an intent string. Use the result to create an Intent.
+        Uri gmmIntentUri = Uri.parse("geo:0,0?q=grocery stores");
+
+        // Create an Intent from gmmIntentUri. Set the action to ACTION_VIEW
+        Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+        // Make the Intent explicit by setting the Google Maps package
+        mapIntent.setPackage("com.google.android.apps.maps");
+
+        // Attempt to start an activity that can handle the Intent
+        startActivity(mapIntent);
+
+
+//        try {
+//            map = ((MapFragment) getFragmentManager().findFragmentById(R.id.map))
+//                    .getMap();
+//            if (map!=null){
+//                map.getUiSettings().setCompassEnabled(true);
+//                map.setTrafficEnabled(true);
+//                map.setMyLocationEnabled(true);
+//
+//                // Move the camera instantly to defaultLatLng.
+//                map.moveCamera(CameraUpdateFactory.newLatLngZoom(defaultLatLng, zoomLevel));
+//
+//                map.addMarker(new MarkerOptions().position(defaultLatLng)
+//                        .title("This is the title")
+//                        .snippet("This is the snippet within the InfoWindow")
+//                        .icon(BitmapDescriptorFactory.fromResource(R.drawable.logo)));
+//
+////                map.setOnInfoWindowClickListener(NearActivity.this);
+//            }
+//        }catch (NullPointerException e) {
+//            e.printStackTrace();
+//        }
+
     }
 
     @Override
