@@ -31,10 +31,12 @@ import com.google.zxing.integration.android.IntentIntegrator;
 import com.googlecode.tesseract.android.TessBaseAPI;
 
 import android.app.Activity;
+import android.app.SearchManager;
 import android.net.Uri;
 import android.provider.MediaStore;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
+import android.support.v7.widget.SearchView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.content.Context;
@@ -47,6 +49,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
+import android.support.v4.view.MenuItemCompat;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -60,6 +63,8 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+//import android.widget.SearchView;
+import android.widget.SearchView.OnQueryTextListener;
 import android.widget.SimpleAdapter;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.widget.TextView;
@@ -84,7 +89,7 @@ import java.util.logging.Logger;
  * for OAuth2 authentication.
  */
 public class MainActivity extends ActionBarActivity
-        implements NavigationDrawerFragment.NavigationDrawerCallbacks {
+        implements NavigationDrawerFragment.NavigationDrawerCallbacks, SearchView.OnQueryTextListener {
     /**
      * Time limit for the application to wait on a response from Play Services.
      */
@@ -365,7 +370,14 @@ public class MainActivity extends ActionBarActivity
     }
 
     @Override
-    public final boolean onCreateOptionsMenu(final Menu menu) {
+    public final boolean onCreateOptionsMenu(Menu menu) {
+
+        getMenuInflater().inflate(R.menu.menu_search, menu);
+
+        MenuItem searchItem = menu.findItem(R.id.search);
+        SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
+        searchView.setOnQueryTextListener(this);
+
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.activity_main, menu);
         return true;
@@ -738,14 +750,15 @@ public class MainActivity extends ActionBarActivity
         }
     }
 
+
+    // Bottom button functions
+
     public void goto_MainActivity(View view){
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 
     public void goto_BarcodeActivity(View view){
-//        Intent intent = new Intent(this, BarcodeActivity.class);
-//        startActivity(intent);
         IntentIntegrator scanIntegrator = new IntentIntegrator(this);
         scanIntegrator.initiateScan();
     }
@@ -753,5 +766,30 @@ public class MainActivity extends ActionBarActivity
     public void goto_CameraActivity(View view){
         Intent intent = new Intent(this, CameraActivity.class);
         startActivity(intent);
+    }
+
+    // Search functions
+
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        getMenuInflater().inflate(R.menu.menu_search, menu);
+//
+//        MenuItem searchItem = menu.findItem(R.id.search);
+//        SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
+//        searchView.setOnQueryTextListener(this);
+//
+//        return true;
+//    }
+
+    @Override
+    public boolean onQueryTextSubmit(String query) {
+        // User pressed the search button
+        return false;
+    }
+
+    @Override
+    public boolean onQueryTextChange(String newText) {
+        // User changed the text
+        return false;
     }
 }
