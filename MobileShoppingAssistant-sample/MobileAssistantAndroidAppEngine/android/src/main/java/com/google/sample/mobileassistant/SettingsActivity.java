@@ -66,7 +66,7 @@ public class SettingsActivity extends ActionBarActivity
                 startActivity(intent3);
                 break;
             case 9:
-                mTitle = getString(R.string.title_section3);
+                mTitle = getString(R.string.title_section8);
                 break;
             case 10:
                 mTitle = getString(R.string.title_section9);

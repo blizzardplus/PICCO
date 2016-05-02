@@ -104,7 +104,7 @@ public class BarcodeActivity extends ActionBarActivity
                 startActivity(intent3);
                 break;
             case 9:
-                mTitle = getString(R.string.title_section3);
+                mTitle = getString(R.string.title_section8);
                 Intent intent8 = new Intent(this, SettingsActivity.class);
                 startActivity(intent8);
                 break;
