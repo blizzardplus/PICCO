@@ -384,13 +384,14 @@ public class MainActivity extends ActionBarActivity
 
     @Override
     public final boolean onOptionsItemSelected(final MenuItem item) {
-        int itemId = item.getItemId();
-        if (itemId == R.id.menu_signOut) {
-            SignInActivity.onSignOut(this);
-            return true;
-        } else {
-            return super.onOptionsItemSelected(item);
-        }
+//        int itemId = item.getItemId();
+//        if (itemId == R.id.menu_signOut) {
+//            SignInActivity.onSignOut(this);
+//            return true;
+//        } else {
+//            return super.onOptionsItemSelected(item);
+//        }
+        return super.onOptionsItemSelected(item);
     }
 
     /**
