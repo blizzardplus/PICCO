@@ -28,8 +28,9 @@ import com.google.appengine.api.users.User;
 import com.google.sample.mobileassistantbackend.Constants;
 import com.google.sample.mobileassistantbackend.models.Product;
 import com.google.sample.mobileassistantbackend.utils.EndpointUtil;
-    
 
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -75,12 +76,32 @@ public class ProductsEndpoint {
      * @throws com.google.api.server.spi.ServiceException if user is not
      * authorized
      */
-    @ApiMethod(httpMethod = "GET")
+    @ApiMethod(path="get_product", httpMethod = "GET")
     public final Product getProduct(@Named("id") final Long id, final User user)
             throws ServiceException {
         EndpointUtil.throwIfNotAdmin(user);
 
         return findProduct(id);
+    }
+
+    // Gets all products in a store
+    @ApiMethod(path="get_store_products", httpMethod = "GET")
+    public final List<Product> getStoreProducts(@Named("storeid") final Long storeid, final User user)
+            throws ServiceException {
+        EndpointUtil.throwIfNotAdmin(user);
+
+        return findStoreProducts(storeid);
+    }
+
+    // Search for a product in all nearby stores
+    @ApiMethod(path="search_product", httpMethod = "GET")
+    public final List<Product> searchProducts(@Named("product_name") final String product_name,
+                                              @Named("store_list") final List<Long> store_list,
+                                              final User user)
+            throws ServiceException {
+        EndpointUtil.throwIfNotAdmin(user);
+
+        return searchProducts(product_name, store_list);
     }
 
     /**
@@ -148,4 +169,18 @@ public class ProductsEndpoint {
     private Product findProduct(final Long id) {
         return ofy().load().type(Product.class).id(id).now();
     }
+
+    private List<Product> findStoreProducts(final Long storeid) {
+        return ofy().load().type(Product.class).filter("storeid ==", storeid).list();
+    }
+
+    private List<Product> searchProducts(final String product_name, final List<Long> store_list) {
+
+        List<Product> product_list = new ArrayList<Product>();
+        for (Long storeid_cur : store_list) {
+            product_list.addAll(ofy().load().type(Product.class).filter("storeid ==", storeid_cur).filter("name ==", product_name).list());
+        }
+        return product_list;
+    }
+
 }

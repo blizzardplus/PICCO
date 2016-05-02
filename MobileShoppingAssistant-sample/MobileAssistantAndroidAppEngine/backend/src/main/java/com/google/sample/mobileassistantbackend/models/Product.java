@@ -60,10 +60,16 @@ public class Product {
         private long price;
 
 
+        // The barcode format of the product
+        private String barcode_format;
+
+        // The barcode context of the product
+        private String barcode_content;
+
         /**
-         * The GPS coordinates of the product, as a GeoPt.
+         * The store id of the product
          */
-        private GeoPt location;
+        private long storeid;
 
         /**
          * Returns the unique identifier of this product.
@@ -163,18 +169,51 @@ public class Product {
         }
 
         /**
-         * Returns the location of the product.
-         * @return the GPS location of this product, as a GeoPt.
+         * Returns the barcode format of the product.
+         * @return the barcode format of the product.
          */
-        public final GeoPt getLocation() {
-                return location;
+        public final String getBarcodeFormat() {
+                return barcode_format;
         }
 
         /**
-         * Sets the location of the product.
-         * @param pLocation the GPS location to set for this product, as a GeoPt.
+         * Sets the barcode format of the product.
+         * @param pBarcode_format the value to set for the barcode format.
          */
-        public final void setLocation(final GeoPt pLocation) {
-                this.location = pLocation;
+        public final void setBarcodeFormat(final String pBarcode_format) {
+                this.barcode_format = pBarcode_format;
+        }
+
+        /**
+         * Returns the barcode content of the product.
+         * @return the barcode content of the product.
+         */
+        public final String getBarcodeContent() {
+                return barcode_content;
+        }
+
+        /**
+         * Sets the barcode content of the product.
+         * @param pBarcode_content the value to set for the barcode content.
+         */
+        public final void setBarcodeContent(final String pBarcode_content) {
+                this.barcode_content = pBarcode_content;
+        }
+
+
+        /**
+         * Returns the store id of the product.
+         * @return the store id of this product
+         */
+        public final long getStoreId() {
+                return storeid;
+        }
+
+        /**
+         * Sets the storeid of the product.
+         * @param pStoreid the storeid to set for this product
+         */
+        public final void setLocation(final long pStoreid) {
+                this.storeid = pStoreid;
         }
 }
