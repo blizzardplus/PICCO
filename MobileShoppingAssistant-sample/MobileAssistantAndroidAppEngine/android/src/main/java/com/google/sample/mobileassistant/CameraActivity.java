@@ -209,11 +209,11 @@ public class CameraActivity extends ActionBarActivity
                 break;
             case 4:
                 mTitle = getString(R.string.title_section4);
-                Intent intent3 = new Intent(this, CameraActivity.class);
-                startActivity(intent3);
                 break;
             case 6:
                 mTitle = getString(R.string.title_section6);
+                Intent intent5 = new Intent(this, HistoryActivity.class);
+                startActivity(intent5);
                 break;
             case 8:
                 mTitle = getString(R.string.title_section8);

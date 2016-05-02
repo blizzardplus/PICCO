@@ -25,14 +25,16 @@ tools:context="com.google.sample.mobileassistant.CameraActivity">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:gravity="center">
 
 
         <Button android:id="@+id/scan_receipt_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:text="@string/scan_your_receipt" />
+            android:text="@string/scan_your_receipt"
+            android:layout_marginTop="40dp" />
 
     </LinearLayout>
 
