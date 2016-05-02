@@ -134,7 +134,7 @@ transformers:
       # Type: String Stats: 6 properties of this type in this kind.
 
 
-- kind: Product
+- kind: HistoryItem
   connector: csv
   connector_options:
   property_map:
