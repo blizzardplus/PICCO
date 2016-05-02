@@ -23,14 +23,14 @@
         <servlet-class>com.google.api.server.spi.SystemServiceServlet</servlet-class>
         <init-param>
             <param-name>services</param-name>
-            <param-value>
-                com.google.sample.mobileassistantbackend.apis.CheckInEndpoint,
+            <param-value>com.google.sample.mobileassistantbackend.apis.CheckInEndpoint,
                 com.google.sample.mobileassistantbackend.apis.OfferEndpoint,
                 com.google.sample.mobileassistantbackend.apis.PlaceEndpoint,
                 com.google.sample.mobileassistantbackend.apis.RecommendationEndpoint,
                 com.google.sample.mobileassistantbackend.apis.RegistrationEndpoint,
-                com.google.sample.mobileassistantbackend.apis.MessagingEndpoint
-
+                com.google.sample.mobileassistantbackend.apis.MessagingEndpoint,
+                com.google.sample.mobileassistantbackend.apis.HistoryItemEndpoint,
+                com.google.sample.mobileassistantbackend.apis.ProductEndpoint
             </param-value>
         </init-param>
     </servlet>

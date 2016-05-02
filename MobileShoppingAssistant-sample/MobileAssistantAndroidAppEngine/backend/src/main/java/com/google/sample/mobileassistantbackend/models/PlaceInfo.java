@@ -16,8 +16,6 @@
 
 package com.google.sample.mobileassistantbackend.models;
 
-import com.google.sample.mobileassistantbackend.models.Place;
-
 /**
  * PlaceInfo class extending the Place with additional information.
  */
