@@ -53,8 +53,8 @@
     <string name="title_section3">Create Shopping Cart</string>
     <string name="title_section4">Submit Shopping Info</string>
     <string name="title_section5">Hot Deals</string>
-    <string name="title_section6">My Shopping Trends</string>
-    <string name="title_section7">Full History</string>
+    <string name="title_section6">Shopping History</string>
+    <string name="title_section7">My Shopping Trends</string>
     <string name="title_section8">Bookmarks</string>
     <string name="title_section9">Settings</string>
     <string name="title_section10">Sign Out</string>
@@ -71,4 +71,5 @@
     <string name="hint_search">Search Item</string>
     <string name="title_activity_settings">Settings</string>
     <string name="title_activity_barcode">Shopping Cart</string>
+    <string name="title_activity_history">Shopping History</string>
 </resources>

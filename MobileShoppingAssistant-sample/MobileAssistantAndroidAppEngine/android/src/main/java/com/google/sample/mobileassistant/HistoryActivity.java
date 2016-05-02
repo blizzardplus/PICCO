@@ -2,17 +2,17 @@ package com.google.sample.mobileassistant;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class SettingsActivity extends ActionBarActivity
+public class HistoryActivity extends ActionBarActivity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks {
 
     private NavigationDrawerFragment mNavigationDrawerFragment;
@@ -26,8 +26,7 @@ public class SettingsActivity extends ActionBarActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_settings);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        setContentView(R.layout.activity_history);
 
         mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
@@ -36,7 +35,7 @@ public class SettingsActivity extends ActionBarActivity
         // Set up the drawer.
         mNavigationDrawerFragment.setUp(
                 R.id.navigation_drawer,
-                (DrawerLayout) findViewById(R.id.drawer_layout_settings));
+                (DrawerLayout) findViewById(R.id.drawer_layout_history));
     }
 
     @Override
@@ -67,11 +66,11 @@ public class SettingsActivity extends ActionBarActivity
                 break;
             case 6:
                 mTitle = getString(R.string.title_section5);
-                Intent intent5 = new Intent(this, HistoryActivity.class);
-                startActivity(intent5);
                 break;
             case 9:
                 mTitle = getString(R.string.title_section8);
+                Intent intent8 = new Intent(this, SettingsActivity.class);
+                startActivity(intent8);
                 break;
             case 10:
                 mTitle = getString(R.string.title_section9);
@@ -87,6 +86,7 @@ public class SettingsActivity extends ActionBarActivity
         actionBar.setDisplayShowTitleEnabled(true);
         actionBar.setTitle(mTitle);
     }
+
 
     /**
      * A placeholder fragment containing a simple view.
@@ -123,9 +123,8 @@ public class SettingsActivity extends ActionBarActivity
         @Override
         public void onAttach(Activity activity) {
             super.onAttach(activity);
-            ((SettingsActivity) activity).onSectionAttached(
+            ((HistoryActivity) activity).onSectionAttached(
                     getArguments().getInt(ARG_SECTION_NUMBER));
         }
     }
-
 }
