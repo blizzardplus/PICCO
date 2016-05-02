@@ -50,30 +50,35 @@ public class HistoryActivity extends ActionBarActivity
     public void onSectionAttached(int number) {
         switch (number) {
             case 2:
-                mTitle = getString(R.string.title_section1);
+                mTitle = getString(R.string.title_section2);
                 Intent intent1 = new Intent(this, MainActivity.class);
                 startActivity(intent1);
                 break;
             case 3:
-                mTitle = getString(R.string.title_section2);
+                mTitle = getString(R.string.title_section3);
                 Intent intent2 = new Intent(this, BarcodeActivity.class);
                 startActivity(intent2);
                 break;
             case 4:
-                mTitle = getString(R.string.title_section3);
+                mTitle = getString(R.string.title_section4);
                 Intent intent3 = new Intent(this, OCRActivity.class);
                 startActivity(intent3);
                 break;
             case 6:
-                mTitle = getString(R.string.title_section5);
+                mTitle = getString(R.string.title_section6);
+                break;
+            case 8:
+                mTitle = getString(R.string.title_section8);
+                Intent intent7 = new Intent(this, NearActivity.class);
+                startActivity(intent7);
                 break;
             case 9:
-                mTitle = getString(R.string.title_section8);
+                mTitle = getString(R.string.title_section9);
                 Intent intent8 = new Intent(this, SettingsActivity.class);
                 startActivity(intent8);
                 break;
             case 10:
-                mTitle = getString(R.string.title_section9);
+                mTitle = getString(R.string.title_section10);
                 SignInActivity.onSignOut(this);
                 break;
         }

@@ -93,8 +93,10 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.google.sample.mobileassistant.MainActivity" />
         </activity>
-        <activity android:name=".HistoryActivity"
-            android:label="@string/title_activity_history"/>
+        <activity
+            android:name=".HistoryActivity"
+            android:label="@string/title_activity_history" />
+        <activity android:name=".NearActivity"></activity>
     </application>
 
 </manifest>
