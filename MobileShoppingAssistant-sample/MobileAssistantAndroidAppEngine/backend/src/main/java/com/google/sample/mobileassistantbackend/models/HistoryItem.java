@@ -31,12 +31,14 @@ public class HistoryItem {
     /**
      * The user of the item.
      */
-    private User user;
+    private String userEmail;
 
     /**
-     * The product of the item.
+     * The product name of the item.
      */
-    private Product product;
+    private String productName;
+
+    private Long productid;
 
     /**
      * The purchase date of the item.
@@ -51,12 +53,8 @@ public class HistoryItem {
     /**
      * The Place of purchase of the item .
      */
-    private Place place;
+    private String placeName;
 
-    /**
-     * The GPS coordinates of the product, as a GeoPt.
-     */
-    private GeoPt location;
 
     /**
      * Returns the unique identifier of this item.
@@ -78,33 +76,51 @@ public class HistoryItem {
      * Returns the user of the item.
      * @return the user of the item.
      */
-    public final User getUser() {
-        return user;
+    public final String getUserEmail() {
+        return userEmail;
     }
 
     /**
      * Sets the user of the item.
-     * @param pUser the user to set for this item.
+     * @param pUserEmail the user to set for this item.
      */
-    public final void setUser(final Product pUser) {
-        this.product = pUser;
+    public final void setUserEmail(final String pUserEmail) {
+        this.userEmail = pUserEmail;
     }
 
     /**
      * Returns the name of the item.
      * @return the name of the item.
      */
-    public final Product getProduct() {
-        return product;
+    public final String getProductName() {
+        return productName;
     }
 
     /**
      * Sets the product of the item.
-     * @param pProduct the product to set for this item.
+     * @param pProductName the product to set for this item.
      */
-    public final void setProduct(final Product pProduct) {
-        this.product = pProduct;
+    public final void setProductName(final String pProductName) {
+        this.productName = pProductName;
     }
+
+    /**
+     * Returns the name of the item.
+     * @return the name of the item.
+     */
+    public final Long getProductid() {
+        return productid;
+    }
+
+    /**
+     * Sets the product of the item.
+     * @param pProductid the product to set for this item.
+     */
+    public final void setProductid(final Long pProductid) {
+        this.productid = pProductid;
+    }
+
+
 
     /**
      * Returns the purchase date of the item.
@@ -142,31 +158,17 @@ public class HistoryItem {
      * Returns the Place of the item.
      * @return the Place price of the item.
      */
-    public final Place getPlace() {
-        return place;
+    public final String getPlaceName() {
+        return placeName;
     }
 
     /**
      * Sets the Place of the item.
-     * @param pPlace the Place to set for this item.
+     * @param pPlaceName the Place to set for this item.
      */
-    public final void setPlace(final Place pPlace) {
-        this.place = pPlace;
+    public final void setPlaceName(final String pPlaceName) {
+        this.placeName = pPlaceName;
     }
 
-    /**
-     * Returns the location of the place.
-     * @return the GPS location of this place, as a GeoPt.
-     */
-    public final GeoPt getLocation() {
-        return location;
-    }
 
-    /**
-     * Sets the location of the place.
-     * @param pLocation the GPS location to set for this place, as a GeoPt.
-     */
-    public final void setLocation(final GeoPt pLocation) {
-        this.location = pLocation;
-    }
 }

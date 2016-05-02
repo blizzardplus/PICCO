@@ -28,6 +28,7 @@ import com.google.sample.mobileassistantbackend.models.HistoryItem;
 import com.google.sample.mobileassistantbackend.utils.EndpointUtil;
 
 
+import java.util.List;
 import java.util.logging.Logger;
 
 import static com.google.sample.mobileassistantbackend.OfyService.ofy;
@@ -72,13 +73,22 @@ public class HistoryItemEndpoint {
      * @throws com.google.api.server.spi.ServiceException if user is not
      * authorized
      */
-    @ApiMethod(httpMethod = "GET")
+    @ApiMethod(path="get_historyitem", httpMethod = "GET")
     public final HistoryItem getHistoryItem(@Named("id") final Long id, final User user)
             throws ServiceException {
         EndpointUtil.throwIfNotAdmin(user);
 
         return findHistoryItem(id);
     }
+
+    @ApiMethod(path="get_user_history", httpMethod = "GET")
+    public final List<HistoryItem> getUserHistory(final User user)
+            throws ServiceException {
+        EndpointUtil.throwIfNotAdmin(user);
+
+        return searchUserHistory(user);
+    }
+
 
     /**
      * Inserts the entity into App Engine datastore. It uses HTTP POST method.
@@ -88,7 +98,7 @@ public class HistoryItemEndpoint {
      * @throws com.google.api.server.spi.ServiceException if user is not
      * authorized
      */
-    @ApiMethod(httpMethod = "POST")
+    @ApiMethod(path="inset_historyitem", httpMethod = "POST")
     public final HistoryItem insertHistoryItem(final HistoryItem historyItem, final User user) throws
             ServiceException {
         EndpointUtil.throwIfNotAdmin(user);
@@ -97,6 +107,20 @@ public class HistoryItemEndpoint {
 
         return historyItem;
     }
+
+    @ApiMethod(path="upload_receipt", httpMethod = "POST")
+    public final void uploadReceipt(@Named("text") final String text, final User user) throws
+            ServiceException {
+        EndpointUtil.throwIfNotAdmin(user);
+        // associate the text with the product database
+
+        //ofy().save().entity().now();
+
+    }
+
+
+
+
 
     /**
      * Updates an entity. It uses HTTP PUT method.
@@ -145,4 +169,9 @@ public class HistoryItemEndpoint {
     private HistoryItem findHistoryItem(final Long id) {
         return ofy().load().type(HistoryItem.class).id(id).now();
     }
+
+    private List<HistoryItem> searchUserHistory(final User user) {
+        return ofy().load().type(HistoryItem.class).filter("userEmail ==", user.getEmail()).order("-purchaseDate").list();
+    }
+
 }

@@ -84,6 +84,16 @@ public class ProductEndpoint {
         return findProduct(id);
     }
 
+    @ApiMethod(path="get_product_by_barcode", httpMethod = "GET")
+    public final List<Product> getProductByBarcode(@Named("barcode_format") final String barcode_format,
+                                             @Named("barcode_content") final String barcode_content,
+                                             final User user)
+            throws ServiceException {
+        EndpointUtil.throwIfNotAdmin(user);
+
+        return findProductByBarcode(barcode_format, barcode_content);
+    }
+
     // Gets all products in a store
     @ApiMethod(path="get_store_products", httpMethod = "GET")
     public final List<Product> getStoreProducts(@Named("storeid") final Long storeid, final User user)
@@ -169,6 +179,11 @@ public class ProductEndpoint {
     private Product findProduct(final Long id) {
         return ofy().load().type(Product.class).id(id).now();
     }
+
+    private List<Product> findProductByBarcode(final String barcode_format, final String barcode_content) {
+        return ofy().load().type(Product.class).filter("barcode_format ==", barcode_format).filter("barcode_content ==", barcode_content).list();
+    }
+
 
     private List<Product> findStoreProducts(final Long storeid) {
         return ofy().load().type(Product.class).filter("storeid ==", storeid).list();
