@@ -853,6 +853,9 @@ public class MainActivity extends ActionBarActivity
         protected ProductCollection doInBackground(final String... params) {
             String query = params[0];
             ProductCollection result;
+            if (places == null) {
+                return null;
+            }
             List<Long> storeid_list = new ArrayList<Long>();
             for (PlaceInfo place_cur : places) {
                 storeid_list.add(place_cur.getPlaceId());
