@@ -14,6 +14,19 @@ tools:context="com.google.sample.mobileassistant.HistoryActivity">
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <TextView
+            android:id="@+id/HistoryListLabel"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="3sp"
+            android:paddingEnd="3sp"
+            android:text="@string/retrievingPlaces"/>
+
+        <ListView
+            android:id="@+id/HistoryList"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
 
 
     </LinearLayout>
