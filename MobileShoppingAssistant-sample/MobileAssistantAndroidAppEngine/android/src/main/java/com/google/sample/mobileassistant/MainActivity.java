@@ -27,6 +27,10 @@ import com.google.sample.mobileassistantbackend
         .shoppingAssistant.model.PlaceInfo;
 import com.google.sample.mobileassistantbackend
         .shoppingAssistant.model.PlaceInfoCollection;
+import com.google.sample.mobileassistantbackend
+        .shoppingAssistant.model.Product;
+import com.google.sample.mobileassistantbackend
+        .shoppingAssistant.model.HistoryItem;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.googlecode.tesseract.android.TessBaseAPI;
 
@@ -784,6 +788,17 @@ public class MainActivity extends ActionBarActivity
     @Override
     public boolean onQueryTextSubmit(String query) {
         // User pressed the search button
+        List<Product> result;
+        try {
+            result = shoppingAssistantAPI.products().searchProducts(query,places)
+                    .execute();
+        } catch (IOException e) {
+            String message = e.getMessage();
+            if (message == null) {
+                message = e.toString();
+            }
+            LOG.warning("Exception when checking in =" + message);
+        }
         return false;
     }
 

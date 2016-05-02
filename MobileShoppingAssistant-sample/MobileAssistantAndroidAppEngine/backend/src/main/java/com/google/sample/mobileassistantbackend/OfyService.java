@@ -17,6 +17,7 @@
 package com.google.sample.mobileassistantbackend;
 
 import com.google.sample.mobileassistantbackend.models.CheckIn;
+import com.google.sample.mobileassistantbackend.models.HistoryItem;
 import com.google.sample.mobileassistantbackend.models.Offer;
 import com.google.sample.mobileassistantbackend.models.Place;
 import com.google.sample.mobileassistantbackend.models.Product;
@@ -46,6 +47,7 @@ public final class OfyService {
             factory().register(Recommendation.class);
             factory().register(Place.class);
             factory().register(Product.class);
+            factory().register(HistoryItem.class);
     }
 
     /**
