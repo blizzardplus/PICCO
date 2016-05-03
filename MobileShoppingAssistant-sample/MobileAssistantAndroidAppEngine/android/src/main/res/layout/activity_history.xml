@@ -20,7 +20,7 @@ tools:context="com.google.sample.mobileassistant.HistoryActivity">
             android:layout_height="wrap_content"
             android:paddingStart="3sp"
             android:paddingEnd="3sp"
-            android:text="@string/retrievingPlaces"/>
+            android:text=""/>
 
         <ListView
             android:id="@+id/HistoryList"
