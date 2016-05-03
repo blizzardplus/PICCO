@@ -352,11 +352,10 @@ public class BarcodeActivity extends ActionBarActivity
 //                map.put("placeIcon", R.drawable.ic_shopping_cart_black_48dp);
             map.put("placeName", prod.getName());
             map.put("placeAddress", prod.getCategory());
-            map.put("placeAddress", (prod.getPrice())/100.0);
-//            String distance = String.format(
-//                    hist.getPlaceName(),
-//                    hist.getPurchaseDate());
-//            map.put("placeDistance", distance);
+            String distance = String.format(
+                    prod.getDescription());
+            map.put("placeDistance", distance);
+            map.put("placeAddress", (prod.getPrice()) / 100.0);
             data.add(map);
         }
 
