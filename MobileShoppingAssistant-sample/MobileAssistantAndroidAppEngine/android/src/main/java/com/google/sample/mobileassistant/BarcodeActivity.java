@@ -212,9 +212,9 @@ public class BarcodeActivity extends ActionBarActivity
             }
             //        placesListLabel.setText(R.string.nearbyPlaces);
 //
-            ListAdapter HistoryListAdapter = createProductListAdapter(
+            ListAdapter ProductListAdapter = createProductListAdapter(
                     result.getItems());
-            ProductList.setAdapter(HistoryListAdapter);
+            ProductList.setAdapter(ProductListAdapter);
 //
 //        places = result.getItems();
 
