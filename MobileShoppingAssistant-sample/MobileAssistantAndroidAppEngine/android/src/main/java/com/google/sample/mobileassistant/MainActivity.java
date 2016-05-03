@@ -785,8 +785,8 @@ public class MainActivity extends ActionBarActivity
     public void goto_BarcodeActivity(View view) {
 //        IntentIntegrator scanIntegrator = new IntentIntegrator(this);
 //        scanIntegrator.initiateScan();
-        Intent intent = new Intent(this, CameraActivity.class);
-        startActivity(intent);
+        Intent intent2 = new Intent(this, BarcodeActivity.class);
+        startActivity(intent2);
     }
 
     public void goto_CameraActivity(View view) {
