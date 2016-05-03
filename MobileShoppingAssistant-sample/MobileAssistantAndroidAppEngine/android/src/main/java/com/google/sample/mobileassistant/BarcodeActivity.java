@@ -127,7 +127,7 @@ public class BarcodeActivity extends ActionBarActivity
         });//closing the setOnClickListener method
 
 
-        ProductList = (ListView) findViewById(R.id.HistoryList);
+        ProductList = (ListView) findViewById(R.id.ProductList);
         ProductListLabel = (TextView) findViewById(R.id.ProductListLabel);
         ProductList.setOnItemClickListener(ProductListClickListener);
 
@@ -193,22 +193,6 @@ public class BarcodeActivity extends ActionBarActivity
          * Updates UI to indicate that retrieval of the list of nearby places
          * completed successfully or failed.
          */
-
-        private AdapterView.OnItemClickListener ProductListClickListener
-                = new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(final AdapterView<?> arg0, final View arg1,
-                                    final int arg2, final long arg3) {
-//            HistoryItem selectedHistory = history.get((int) arg3);
-//
-//            new CheckInTask().execute(selectedHistory);
-//
-//            HistoryDetailsActivity.setCurrentPlace(selectedHistory);
-//            Intent i = new Intent(HistoryActivity.this,
-//                    HistoryDetailsActivity.class);
-//            startActivity(i);
-            }
-        };
 
         @Override
         protected void onPostExecute(final ProductCollection result) {
