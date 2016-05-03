@@ -18,20 +18,30 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ListAdapter;
+import android.widget.ListView;
 import android.widget.PopupMenu;
+import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.api.client.repackaged.com.google.common.base.Objects;
 import com.google.sample.mobileassistantbackend.shoppingAssistant.ShoppingAssistant;
+import com.google.sample.mobileassistantbackend.shoppingAssistant.model.HistoryItem;
+import com.google.sample.mobileassistantbackend.shoppingAssistant.model.HistoryItemCollection;
 import com.google.sample.mobileassistantbackend.shoppingAssistant.model.ProductCollection;
+import com.google.sample.mobileassistantbackend.shoppingAssistant.model.Product;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.logging.Logger;
 //import android.app.ActionBar;
 
@@ -56,6 +66,11 @@ public class BarcodeActivity extends ActionBarActivity
      * Used to store the last screen title. For use in {@link #restoreActionBar()}.
      */
     private CharSequence mTitle;
+
+    private List<Product> product = null;
+
+    private ListView ProductList;
+    private TextView ProductListLabel;
 
     private static final Logger LOG = Logger
             .getLogger(MainActivity.class.getName());
@@ -112,9 +127,28 @@ public class BarcodeActivity extends ActionBarActivity
         });//closing the setOnClickListener method
 
 
+        ProductList = (ListView) findViewById(R.id.HistoryList);
+        ProductListLabel = (TextView) findViewById(R.id.ProductListLabel);
+        ProductList.setOnItemClickListener(ProductListClickListener);
+
         //        scanBtn.setOnClickListener(this);
     }
 
+    private AdapterView.OnItemClickListener ProductListClickListener
+            = new AdapterView.OnItemClickListener() {
+        @Override
+        public void onItemClick(final AdapterView<?> arg0, final View arg1,
+                                final int arg2, final long arg3) {
+//            HistoryItem selectedHistory = history.get((int) arg3);
+//
+//            new CheckInTask().execute(selectedHistory);
+//
+//            HistoryDetailsActivity.setCurrentPlace(selectedHistory);
+//            Intent i = new Intent(HistoryActivity.this,
+//                    HistoryDetailsActivity.class);
+//            startActivity(i);
+        }
+    };
 
     public void goto_scanIntegrator(View v){
 //        if(v.getId()==R.id.scan_button){
@@ -159,33 +193,50 @@ public class BarcodeActivity extends ActionBarActivity
          * Updates UI to indicate that retrieval of the list of nearby places
          * completed successfully or failed.
          */
+
+        private AdapterView.OnItemClickListener ProductListClickListener
+                = new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(final AdapterView<?> arg0, final View arg1,
+                                    final int arg2, final long arg3) {
+//            HistoryItem selectedHistory = history.get((int) arg3);
+//
+//            new CheckInTask().execute(selectedHistory);
+//
+//            HistoryDetailsActivity.setCurrentPlace(selectedHistory);
+//            Intent i = new Intent(HistoryActivity.this,
+//                    HistoryDetailsActivity.class);
+//            startActivity(i);
+            }
+        };
+
         @Override
         protected void onPostExecute(final ProductCollection result) {
-        /*
-        MainActivity.this.setProgressBarIndeterminateVisibility(false);
 
-        if (result == null || result.getItems() == null
-                || result.getItems().size() < 1) {
-            if (result == null) {
-                placesListLabel.setText(R.string.failedToRetrievePlaces);
-            } else {
-                placesListLabel.setText(R.string.noPlacesNearby);
+//        MainActivity.this.setProgressBarIndeterminateVisibility(false);
+
+            if (result == null || result.getItems() == null
+                    || result.getItems().size() < 1) {
+                if (result == null) {
+                    ProductListLabel.setText(R.string.failedToRetrievePlaces);
+                } else {
+                    ProductListLabel.setText(R.string.noHistory);
+                }
+
+                ProductList.setAdapter(null);
+                return;
             }
+            //        placesListLabel.setText(R.string.nearbyPlaces);
+//
+            ListAdapter HistoryListAdapter = createProductListAdapter(
+                    result.getItems());
+            ProductList.setAdapter(HistoryListAdapter);
+//
+//        places = result.getItems();
 
-            placesList.setAdapter(null);
-            return;
+//            HistoryListLabel.setText(R.string.nearbyPlaces);
+            product = result.getItems();
         }
-
-        placesListLabel.setText(R.string.nearbyPlaces);
-
-        ListAdapter placesListAdapter = createPlaceListAdapter(
-                result.getItems());
-        placesList.setAdapter(placesListAdapter);
-
-        places = result.getItems();
-        */
-        }
-
 
         @Override
         protected ProductCollection doInBackground(final List<String>... params) {
@@ -306,6 +357,32 @@ public class BarcodeActivity extends ActionBarActivity
             ((BarcodeActivity) activity).onSectionAttached(
                     getArguments().getInt(ARG_SECTION_NUMBER));
         }
+    }
+
+    private ListAdapter createProductListAdapter(final List<Product>
+                                                         placesRetrieved) {
+        final double kilometersInAMile = 1.60934;
+        List<Map<String, Object>> data = new ArrayList<>();
+        for (Product prod : placesRetrieved) {
+            Map<String, Object> map = new HashMap<>();
+//                map.put("placeIcon", R.drawable.ic_shopping_cart_black_48dp);
+            map.put("placeName", prod.getName());
+            map.put("placeAddress", prod.getCategory());
+            map.put("placeAddress", (prod.getPrice())/100.0);
+//            String distance = String.format(
+//                    hist.getPlaceName(),
+//                    hist.getPurchaseDate());
+//            map.put("placeDistance", distance);
+            data.add(map);
+        }
+
+        return new SimpleAdapter(BarcodeActivity.this, data,
+                R.layout.place_item,
+                new String[]{"placeIcon", "placeName", "placeAddress",
+                        "placeDistance"},
+                new int[]{R.id.place_Icon, R.id.place_name,
+                        R.id.place_address,
+                        R.id.place_distance});
     }
 
 }

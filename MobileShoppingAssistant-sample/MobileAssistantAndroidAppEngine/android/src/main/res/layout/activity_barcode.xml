@@ -45,6 +45,21 @@
         android:layout_centerHorizontal="true" />
 
 
+    <TextView
+        android:id="@+id/ProductListLabel"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="3sp"
+        android:paddingEnd="3sp"
+        android:text="@string/retrievingPlaces"/>
+
+    <ListView
+        android:id="@+id/ProductList"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+
 </LinearLayout>
 
     <LinearLayout
